@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  --color-button-blue:#3171e2;
+  --color-button-blue-hover:#0360b9;
+  --color-button-white-hover:#dcdfec;
+  --color-border-gray-1:#c3c6d4;
+  --color-text-light:#ffffff;
+  --color-text-primary:#323338;
+  --color-text-secondary:#323338;
+  --color-text-link:#1f76c2;
+}
+
+.fw-lighter {
+  font-weight: 100;
+}
+
+.fw-light {
+  font-weight: 300;
+}
+
+.fw-normal {
+  font-weight: 400;
+}
+
+.fw-semibold {
+  font-weight: 500;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fw-bolder {
+  font-weight: 800;
+}
+
+.fs-1 {
+  font-size: 14px;
+}
+
+.fs-2 {
+  font-size: 16px;
+}
+
+.fs-3 {
+  font-size: 18px;
+}
+
+.fs-4 {
+  font-size: 20px;
+}
+
+.fs-5 {
+  font-size: 24px;
+}
+
+.fs-6 {
+  font-size: 30px;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.button-submit, body .singin-page .content .login-form .form-content .email-sign-in form button {
+  font-size: 18px;
+  color: var(--color-text-light);
+  background-color: var(--color-button-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  padding: 7px 20px 7px 18px;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+.button-submit:hover, body .singin-page .content .login-form .form-content .email-sign-in form button:hover {
+  background-color: var(--color-button-blue-hover);
+}
+
+.button-transparent, body .singin-page .content .login-form .form-content .email-sign-in form input, body .singin-page .content .login-form .form-content .google-sign-in button {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  padding: 7px 20px 7px 18px;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+.button-transparent:hover, body .singin-page .content .login-form .form-content .email-sign-in form input:hover, body .singin-page .content .login-form .form-content .google-sign-in button:hover {
+  background-color: var(--color-button-white-hover);
+}
+
+body .singin-page .content .login-form {
+  width: 100%;
+}
+body .singin-page .content .login-form .form-content {
+  text-align: center;
+}
+body .singin-page .content .login-form .form-content .welcome-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 2.2rem;
+}
+@media screen and (max-width: 768px) {
+  body .singin-page .content .login-form .form-content .welcome-title {
+    font-size: 2rem;
+    line-height: 1.8rem;
+  }
+}
+body .singin-page .content .login-form .form-content .google-sign-in button {
+  border: 1px solid var(--color-border-gray-1);
+  border-radius: "5px";
+}
+body .singin-page .content .login-form .form-content .google-sign-in button img {
+  display: inline-block;
+  width: 24px;
+}
+body .singin-page .content .login-form .form-content .or-line .line {
+  height: 1.5px;
+  background-color: var(--color-border-gray-1);
+  width: 100%;
+}
+body .singin-page .content .login-form .form-content .or-line .or {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+}
+body .singin-page .content .login-form .form-content .email-sign-in {
+  width: 100%;
+}
+body .singin-page .content .login-form .form-content .email-sign-in form input {
+  border: 1px solid var(--color-border-gray-1);
+  border-radius: "5px";
+}
+body .singin-page .content .login-form .form-content .email-sign-in form input:hover {
+  outline: none;
+  background-color: transparent;
+}
+body .singin-page .content .login-form .form-content .email-sign-in form input:focus {
+  outline: none;
+  border-color: var(--color-blue);
+}
+body .singin-page .content .login-form .form-content .email-sign-in form button {
+  width: 100%;
+}
+body .singin-page .content .login-form .form-content .terms-privacy .content p {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+body .singin-page .content .login-form .form-content .terms-privacy .content a {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-text-link);
+}
+body .singin-page .content .login-form .form-content .login-link .content {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+}
+body .singin-page .content .image-panel .image-content {
+  max-width: 1200px;
+}
+body .singin-page .content .image-panel .image-content img {
+  object-fit: cover;
+}

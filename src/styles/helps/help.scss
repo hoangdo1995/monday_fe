@@ -1,0 +1,71 @@
+// color
+$color-blue:#3171e2;
+$color-blue-gray:#0360b9;
+$color-blue-2:#1f76c2;
+$color-white:#ffffff;
+$color-white-gray:#dcdfec;
+$color-gray-1:#c3c6d4;
+$color-gray-2:#323338;
+$color-black-1:#323338;
+
+//variable
+body{
+    //background-color
+    --color-button-blue:#{$color-blue};
+    --color-button-blue-hover:#{$color-blue-gray};
+    --color-button-white-hover:#{$color-white-gray};
+    //border-color
+    --color-border-gray-1:#{$color-gray-1};
+    //text color
+    --color-text-light:#{$color-white};
+    --color-text-primary:#{$color-black-1};
+    --color-text-secondary:#{$color-gray-2};
+    --color-text-link:#{$color-blue-2};
+    }
+
+//font-weight
+
+$fontWeight: ("lighter":100, "light":300, "normal":400, "semibold":500, "bold":700, "bolder":800);
+
+@each $key,$value in $fontWeight {
+    .fw-#{$key}{
+        font-weight: $value;
+    }
+}
+
+$fw-lighter:100;
+$fw-light:300;
+$fw-normal:400;
+$fw-semibold:500;
+$fw-bold:700;
+$fw-bolder:800;
+
+// font-size
+
+$fs:("1":14px,"2":16px,"3":18px,"4":20px,"5":24px,"6":30px);
+
+@each $key,$value in $fs{
+    .fs-#{$key}{
+        font-size:#{$value};
+    }
+}
+
+$fs-1:14px;
+$fs-2:16px;
+$fs-3:18px;
+$fs-4:20px;
+$fs-5:24px;
+$fs-6:30px;
+
+@mixin textStyle($fs:16px,$fw:500,$color:#{var(--color-text-primary)}){
+    font-size: $fs;
+    font-weight: $fw;
+    color:$color;
+}
+
+@mixin borderStyle($color:#{var(--color-text-primary)},$stroke:1px,$radius:'5px'){
+    border: #{$stroke} solid #{$color};
+    border-radius: $radius;
+}
+
+

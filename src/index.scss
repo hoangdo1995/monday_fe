@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import './styles/helps/help.scss';
+@import './styles/utils/default.scss';
+
+body{
+    .singin-page{
+        .content{
+            .login-form{
+                width: 100%;
+                .form-content{
+                    text-align: center;
+                    .welcome-title{
+                        @include textStyle(2.5rem,$fw-semibold);
+                        line-height: 2.2rem;
+                        @media screen and (max-width:768px) {
+                            font-size: 2rem;
+                            line-height: 1.8rem;
+                        }
+                    }
+                    .start-title{
+    
+                    }
+                    .google-sign-in{
+                        button{
+                            @include borderStyle(var(--color-border-gray-1));
+                            @extend .button-transparent;
+                            img{
+                                display: inline-block;
+                                width: 24px;
+                            }
+                        }
+                    }
+                    .or-line{
+                        .line{
+                            height: 1.5px;
+                            background-color: var(--color-border-gray-1);
+                            width: 100%;
+                        }
+                        .or{
+                            @include textStyle($fs-4,$fw-light);
+                            
+                        }
+                    }
+                    .email-sign-in{
+                        width: 100%;
+                        form{
+                            input{
+                                @include borderStyle(var(--color-border-gray-1));
+                                @extend .button-transparent;
+                                &:hover{
+                                    outline: none;
+                                    background-color: transparent;
+                                }
+                                &:focus{
+                                    outline: none;
+                                    border-color: var(--color-blue);
+                                }
+                            }
+                            button{
+                                width: 100%;
+                                @extend .button-submit;
+                            }
+                        }
+                    }
+                    .terms-privacy{
+                        .content{
+                            p{
+                                @include textStyle($fs-3,$fw-normal,var(--color-text-primary));
+                            }
+                            a{
+                                @include textStyle($fs-3,$fw-normal,var(--color-text-link));
+                            }
+                        }
+                    }
+                    .login-link{
+                        .content{
+                                @include textStyle($fs-3,$fw-light);
+                                a{
+                                    
+                                }
+                        }
+                    }
+                }
+            }
+            .image-panel{
+                .image-content{
+                    max-width: 1200px;
+                    img{
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}
