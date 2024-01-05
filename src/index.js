@@ -6,13 +6,15 @@ import App from './App';
 // redux store
 import { Provider } from 'react-redux';
 import { store } from './redux/configStore';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
+import { createBrowserHistory} from 'history';
+const history = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <HistoryRouter history={history}>
     <Provider store={store}>
       <App />
     </Provider>
-  </BrowserRouter>
+  </HistoryRouter>
 );

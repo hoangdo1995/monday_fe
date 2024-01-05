@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SignInPage = () => {
+const SignUpPage = () => {
     return <div className="singin-page">
-        <div className="content block h-screen flex  w-full">
+        <div className="content h-screen flex  w-full">
             <div className="login-form w-full flex items-center justify-center px-4">
                 <div className="form-content h-100">
                     <p className="welcome-title">Welcome to monday.com</p>
@@ -48,5 +48,5 @@ const SignInPage = () => {
     </div>;
 };
 
-export default SignInPage;
+export default SignUpPage;
 
