@@ -4,9 +4,6 @@ import LogoComponent from "../../components/LogoComponent";
 import { Outlet, useOutlet } from "react-router-dom";
 
 const SignUpTemplate = (props) => {
-    const outlet = useOutlet();
-    const link = outlet.props.children.props.children.props;
-    
   return <div className="login-page">
         <div className="content flex">
             <div className="login-form w-full min-w-screen-lg flex items-center justify-center h-screen px-4">
@@ -14,18 +11,10 @@ const SignUpTemplate = (props) => {
                     <div className="sign-in-header">
                         <LogoComponent/>
                     </div>
-                    <div className="sign-in-body">
-                        <div className="form-content" style={{maxWidth:'500px'}}>
-                            <Outlet/>
-                        </div>
-                    </div>
-                    <div className="sign-in-footer flex justify-between w-full">
-                        <DirectionButtonDefault  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={link['prevLink']}/>
-                        <DirectionButtonDefault title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" linkRouter={link['nextLink']}></i></span>}/>
-                    </div>
+                    <Outlet/>
                 </div>
             </div>
-            <div className="login-panel max-w-screen-sm hidden sm:block h-screen" style={{maxWidth:'45%'}}>
+            <div className="login-panel max-w-screen-sm hidden sm:block h-screen" style={{maxWidth:'40%'}}>
                 <div className="content h-full items-center" style={{overflow:'hidden'}}>
                     <img className="w-screen-sm min-h-screen" style={{objectFit:'cover'}} src="https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/signup-right-side-assets-new-flow/set-up-your-account.png" alt="" />
                 </div>

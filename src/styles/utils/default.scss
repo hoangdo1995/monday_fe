@@ -1,6 +1,7 @@
 *{
     // font
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 
@@ -36,4 +37,41 @@
     &:hover{
         background-color:var(--color-button-white-hover);
     }
+}
+
+//radio answer custom
+
+.radio{
+    text-transform: capitalize;
+    position: relative;
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+}
+
+.radio span{
+    display: inline-block;
+    padding: 6px;
+    border: 1px solid var(--color-border-gray-1);
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    top: 9px;
+}
+
+.radio span::after{
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 0px solid var(--color-button-blue);
+    left: 0;
+    top: 0;
+    position: absolute;
+    transition: 300ms ease-in 0s;
+
+}
+
+.radio input[type="radio"]:checked ~ span::after{
+    border-width: 3px;
 }

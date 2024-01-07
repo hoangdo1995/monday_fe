@@ -4,7 +4,7 @@ const LogoComponent = () => {
   return (
       <div className="logo flex items-baseline">
           <img
-              src="./images/icons/monday-logo.png"
+              src="/images/icons/monday-logo.png"
               alt=""
               className="w-lg h-5 me-2"
           />
