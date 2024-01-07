@@ -1,6 +1,11 @@
 import React from "react";
+import DirectionButtonDefault from "../../components/DirectionButtonDefault";
+import LogoComponent from "../../components/LogoComponent";
+import { Outlet, useOutlet } from "react-router-dom";
 
 const SignUpTemplate = (props) => {
+    const outlet = useOutlet();
+    const link = outlet.props.children.props.children.props;
     
   return <div className="login-page">
         <div className="content flex">
@@ -11,21 +16,12 @@ const SignUpTemplate = (props) => {
                     </div>
                     <div className="sign-in-body">
                         <div className="form-content" style={{maxWidth:'500px'}}>
-                            <form action="" className="flex flex-col">
-                                <LabelInput name='Full name'/>
-                                <InputText placeholder="Enter your full name"/>
-                                <LabelError title="Enter your name"/>
-                                <LabelInput name='Password'/>
-                                <InputText type='password' placeholder="Enter at least 8 characters"/>
-                                <LabelError title=''/>
-                                <LabelInput name='Account name'/>
-                                <InputText placeholder="For example, company's or deparment's name"/>
-                                <LabelError title=''/>
-                            </form>
+                            <Outlet/>
                         </div>
                     </div>
-                    <div className="sign-in-footer flex justify-end w-full">
-                        <DirectionButtonDefault title={<span>Continue <i class="fa fa-chevron-right ms-2 text-sm"></i></span>}/>
+                    <div className="sign-in-footer flex justify-between w-full">
+                        <DirectionButtonDefault  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={link['prevLink']}/>
+                        <DirectionButtonDefault title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" linkRouter={link['nextLink']}></i></span>}/>
                     </div>
                 </div>
             </div>

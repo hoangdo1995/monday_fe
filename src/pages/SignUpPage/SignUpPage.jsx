@@ -39,9 +39,9 @@ const SignUpPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="image-panel hidden md:block w-fit">
-                <div className="image-content w-screen-sm max-w-screen-md">
-                    <img src="https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/signup-right-side-assets-new-flow/welcome-to-monday.png" className="w-full h-screen"/>
+            <div className="image-panel hidden md:block w-fit h-screen max-w-md" style={{maxWidth:'40%'}}>
+                <div className="image-content h-full">
+                    <img src="https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/signup-right-side-assets-new-flow/welcome-to-monday.png" className="h-full object-cover" />
                 </div>
             </div>
         </div>

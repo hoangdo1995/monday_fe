@@ -15,7 +15,6 @@ const SignUpDetailPage = () => {
                     </div>
                     <div className="sign-in-body">
                         <div className="form-content" style={{maxWidth:'500px'}}>
-                            <div className="title"></div>
                             <form action="" className="flex flex-col">
                                 <LabelInput name='Full name'/>
                                 <InputText placeholder="Enter your full name"/>
@@ -34,7 +33,7 @@ const SignUpDetailPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="login-panel max-w-screen-sm hidden sm:block h-screen" style={{maxWidth:'45%'}}>
+            <div className="login-panel max-w-screen-sm hidden sm:block h-screen" style={{maxWidth:'40%'}}>
                 <div className="content h-full items-center" style={{overflow:'hidden'}}>
                     <img className="w-screen-sm min-h-screen" style={{objectFit:'cover'}} src="https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/signup-right-side-assets-new-flow/set-up-your-account.png" alt="" />
                 </div>
