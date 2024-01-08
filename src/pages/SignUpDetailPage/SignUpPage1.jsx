@@ -3,6 +3,7 @@ import LabelError from "../../components/LabelError";
 import InputText from "../../components/InputText";
 import LabelInput from "../../components/LabelInput";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
+import { useOutletContext } from "react-router-dom";
 
 const SignUpPage1 = (props) => {
     const {nextLink, prevLink} = props;
