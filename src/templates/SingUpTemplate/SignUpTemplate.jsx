@@ -7,7 +7,8 @@ const SignUpTemplate = (props) => {
     const listPanelImage = {
         'page-1':'https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/signup-right-side-assets-new-flow/set-up-your-account.png',
         'page-2':'https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/signup-right-side-assets-new-flow/what-brings-you-here-today.png',
-        'page-3':'https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/signup-right-side-assets-new-flow/how-many-people-work-at-your-company.png'
+        'page-3':'https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/signup-right-side-assets-new-flow/how-many-people-work-at-your-company.png',
+        'page-4':'https://dapulse-res.cloudinary.com/image/upload/monday_platform/signup/new-signup-right-side-assets/Invite-your-teammates.png'
     }
     const location = useLocation();
     const pathListSplit = location.pathname.split('/');

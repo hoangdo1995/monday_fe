@@ -4,6 +4,7 @@ import SignUpTemplate from './templates/SingUpTemplate/SignUpTemplate';
 import SignUpPage1 from './pages/SignUpDetailPage/SignUpPage1';
 import SignUpPage2 from './pages/SignUpDetailPage/SignUpPage2';
 import SignUpPage3 from './pages/SignUpDetailPage/SignUpPage3';
+import SignUpPage4 from './pages/SignUpDetailPage/SignUpPage4';
 
 
 function App() {
@@ -29,7 +30,11 @@ function App() {
             },
             {
               path:'page-3',
-              element:<SignUpPage3 prevLink='page-2'/>
+              element:<SignUpPage3 prevLink='page-2' nextLink='page-4'/>
+            },
+            {
+              path:'page-4',
+              element:<SignUpPage4 prevLink='page-3'/>
             }
 
           ]
