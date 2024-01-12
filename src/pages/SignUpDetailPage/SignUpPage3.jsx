@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RadioInput from "../../components/RadioInput";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
+import DirectionButtonGray from "../../components/DirectionButtonGray";
 
 const SignUpPage3 = (props) => {
     const {nextLink,prevLink} =props;
@@ -32,7 +33,7 @@ const SignUpPage3 = (props) => {
             </div>
         </div>
         <div className="sign-in-footer flex justify-between w-full">
-            <DirectionButtonDefault  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={prevLink}/>
+            <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={prevLink}/>
             <DirectionButtonDefault title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" ></i></span>} linkRouter={nextLink}/>
     </div>
   </>;

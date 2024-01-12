@@ -5,6 +5,7 @@ import SignUpPage1 from './pages/SignUpDetailPage/SignUpPage1';
 import SignUpPage2 from './pages/SignUpDetailPage/SignUpPage2';
 import SignUpPage3 from './pages/SignUpDetailPage/SignUpPage3';
 import SignUpPage4 from './pages/SignUpDetailPage/SignUpPage4';
+import CreateBoardPage1 from './pages/BoardCreatePage/CreateBoardPage1';
 
 
 function App() {
@@ -37,6 +38,15 @@ function App() {
               element:<SignUpPage4 prevLink='page-3'/>
             }
 
+          ]
+        },
+        {
+          path:'create-board',
+          children:[
+            {
+              path:'page-1',
+              element:<CreateBoardPage1/>
+            }
           ]
         }
       ]
