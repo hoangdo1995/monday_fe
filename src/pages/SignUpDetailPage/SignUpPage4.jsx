@@ -33,7 +33,7 @@ const SignUpPage4 = (props) => {
         </div>
         <div className="sign-in-footer flex justify-between w-full">
             <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={prevLink}/>
-            <DirectionButtonDefault title={'Invite your team'} linkRouter={nextLink}/>
+            <DirectionButtonDefault title={'Invite your team'} linkRouter={nextLink} active={false}/>
         </div>
       </>;
 };

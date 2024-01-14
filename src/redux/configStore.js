@@ -1,5 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+import newBoardReducer from './reducer/newBoardReducer';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    newBoardReducer:newBoardReducer,
+  },
 });

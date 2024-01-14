@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LabelError from "../../components/LabelError";
 import InputText from "../../components/InputText";
 import LabelInput from "../../components/LabelInput";
@@ -7,6 +7,7 @@ import { useOutletContext } from "react-router-dom";
 import DirectionButtonGray from "../../components/DirectionButtonGray";
 
 const SignUpPage1 = (props) => {
+    const [complete, setComplete] = useState(false);
     const {nextLink, prevLink} = props;
   return <>
 <div className="sign-in-body">
@@ -26,7 +27,7 @@ const SignUpPage1 = (props) => {
 </div>
 <div className="sign-in-footer flex justify-between w-full">
     <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={prevLink}/>
-    <DirectionButtonDefault title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" ></i></span>} linkRouter={nextLink}/>
+    <DirectionButtonDefault title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" active={false}></i></span>} linkRouter={nextLink}/>
 </div>
   </>
   ;

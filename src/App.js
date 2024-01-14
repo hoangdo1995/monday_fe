@@ -44,7 +44,7 @@ function App() {
           path:'create-board',
           children:[
             {
-              path:'page-1',
+              path:'set-name',
               element:<CreateBoardPage1/>
             }
           ]
