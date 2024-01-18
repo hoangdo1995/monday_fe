@@ -36,7 +36,7 @@ const CreateBoardPage1 = () => {
                             In monday.com, "boards" are the place where all your content lives.
                         </div>
                         <div className="flex justify-end">
-                            <DirectionButtonDefault title={<div className='flex items-center'><span className='font-light tracking-wide'>Next</span><i className="fa fa-chevron-right text-xs ms-1"></i></div>} active={name?true:false}/>
+                            <DirectionButtonDefault title={<div className='flex items-center'><span className='font-light tracking-wide'>Next</span><i className="fa fa-chevron-right text-xs ms-1"></i></div>} active={name?true:false} linkRouter={'select-column'}/>
                         </div>
                     </div>
                 </div>
@@ -75,6 +75,26 @@ const CreateBoardPage1 = () => {
                                 </div>
                                 <div className="column" style={{maxWidth:50,flexShrink:0}}>
                                     <i className="fa fa-plus text-base font-extrabold text-slate-500"></i>
+                                </div>
+                            </div>
+                            <div className="row flex w-full">
+                                <div className="column grow px-4" style={{justifyContent:'start',flexShrink:0,borderLeftWidth:7,borderLeftColor:'#6799f5'}}>
+                                    <div className="skeleton-line bg-slate-300 rounded" style={{width:'80%',height:5}}>
+                                    </div>
+                                </div>
+                                <div className="column" style={{flexShrink:20}}>
+                                    <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}>
+                                    </div>
+                                </div>
+                                <div className="column" style={{flexShrink:20}}>
+                                    <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}>
+                                    </div>
+                                </div>
+                                <div className="column" style={{flexShrink:20}}>
+                                    <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}>
+                                    </div>
+                                </div>
+                                <div className="column" style={{maxWidth:50,flexShrink:0}}>
                                 </div>
                             </div>
                             <div className="row flex w-full">

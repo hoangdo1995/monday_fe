@@ -6,6 +6,7 @@ import SignUpPage2 from './pages/SignUpDetailPage/SignUpPage2';
 import SignUpPage3 from './pages/SignUpDetailPage/SignUpPage3';
 import SignUpPage4 from './pages/SignUpDetailPage/SignUpPage4';
 import CreateBoardPage1 from './pages/BoardCreatePage/CreateBoardPage1';
+import SelectColumnPage from './pages/BoardCreatePage/SelectColumnPage';
 
 
 function App() {
@@ -46,6 +47,10 @@ function App() {
             {
               path:'set-name',
               element:<CreateBoardPage1/>
+            },
+            {
+              path:'select-column',
+              element:<SelectColumnPage/>
             }
           ]
         }

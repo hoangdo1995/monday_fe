@@ -72,6 +72,17 @@
 
 }
 
+//custom column select checked item
+.column-item div{
+    border: 2px solid transparent;
+    bottom: -50%;
+    left: -10%;
+    border-color: rgb(226, 226, 226);
+}
+.column-item input:checked~div{
+    border-color: #459bf7;
+}
+
 .radio input[type="radio"]:checked ~ span::after{
     border-width: 3px;
 }
@@ -99,6 +110,26 @@
 .column-left{
     
 }
+
 .row{
     height: 35px;
+}
+.column-sm{
+    // min-width: 130px;
+}
+.row-sm{
+    font-size: 15px;
+    height: 38px;
+    min-width: 120px;
+    width: 100%;
+    border: 1px solid #aaaaaa;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    justify-items: stretch;
+    // word-wrap: normal;
+    flex-grow: 2;
+    white-space: nowrap;
 }
