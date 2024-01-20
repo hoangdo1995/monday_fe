@@ -1,19 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    name:''
+    name:'',
+    listColumn:['owner','status','due_date'],
+    objectManager:'project'
 };
 
 const newBoardReducer = createSlice({
   name: 'new_board',
   initialState,
   reducers: {
-    setNewBoard(state,{payload}){
+    setNewBoardName(state,{payload}){
         state.name = payload;
     },
+    setNewBoardListColumn:(state,{payload})=>{
+      state.listColumn = payload;
+    },
+    setNewBoardObjectManager(state,{payload}){
+      state.objectManager = payload;
+    }
   },
 });
 
-export const {setNewBoard} = newBoardReducer.actions;
+export const {setNewBoardName,setNewBoardListColumn,setNewBoardObjectManager} = newBoardReducer.actions;
 
 export default newBoardReducer.reducer;

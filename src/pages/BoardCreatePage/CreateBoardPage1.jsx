@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import LogoComponent from "../../components/LogoComponent";
-import { setNewBoard } from "../../redux/reducer/newBoardReducer";
+import { setNewBoardName } from "../../redux/reducer/newBoardReducer";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
 import { useDispatch } from "react-redux";
 
@@ -12,7 +12,7 @@ const CreateBoardPage1 = () => {
         //thay đổi border cho input
         event.currentTarget.classList.remove('!border-sky-400');
         //thực hiện đưa dử liệu nhập lên reducer
-        const action = setNewBoard(event.currentTarget.value);
+        const action = setNewBoardName(event.currentTarget.value);
         console.log(action,'action');
         dispatch(action);
     }
