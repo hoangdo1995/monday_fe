@@ -21,3 +21,21 @@ export const columnTitleList = {
     'notes':'notes',
     'files':'files'
 }
+
+export const  layoutViewList = {
+    'table':'Table view is your default layout. Plan, track and manage anything using a visual board.',
+    'cards':'See all your item details in a visual gallery.',
+    'gantt':'Visualize project milestones and dependencies.',
+    'calender':'See all upcoming content and due dates at a glance.',
+    'kanban':'Prioritize and balance work according to capacity.',
+    'timeline':'Stay on track with visual deadlines and timelines.'
+}
+
+export const viewBgColor = {
+    'table':'#784bd1',
+    'cards':'#ff642e',
+    'gantt':'#027f4b',
+    'calender':'#faa1f1',
+    'kanban':'#2a76e5',
+    'timeline':'#fdaa3c'
+}

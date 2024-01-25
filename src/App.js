@@ -7,6 +7,7 @@ import SignUpPage3 from './pages/SignUpDetailPage/SignUpPage3';
 import SignUpPage4 from './pages/SignUpDetailPage/SignUpPage4';
 import CreateBoardPage1 from './pages/BoardCreatePage/CreateBoardPage1';
 import SelectColumnPage from './pages/BoardCreatePage/SelectColumnPage';
+import SelectViewLayoutPage from './pages/BoardCreatePage/SelectViewLayoutPage';
 import SelectObjectManagerPage from './pages/BoardCreatePage/SelectObjectManagerPage';
 
 
@@ -56,6 +57,10 @@ function App() {
             {
               path:'select-object',
               element:<SelectObjectManagerPage/>
+            },
+            {
+              path:'select-view-layout',
+              element:<SelectViewLayoutPage/>
             }
           ]
         }

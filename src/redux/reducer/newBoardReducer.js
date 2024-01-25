@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     name:'',
     listColumn:['owner','status','due_date'],
-    objectManager:'project'
+    objectManager:'project',
+    viewLayout:null
 };
 
 const newBoardReducer = createSlice({
@@ -18,10 +19,13 @@ const newBoardReducer = createSlice({
     },
     setNewBoardObjectManager(state,{payload}){
       state.objectManager = payload;
+    },
+    setNewBoardViewLayout(state,{payload}){
+      state.viewLayout = payload;
     }
   },
 });
 
-export const {setNewBoardName,setNewBoardListColumn,setNewBoardObjectManager} = newBoardReducer.actions;
+export const {setNewBoardName,setNewBoardListColumn,setNewBoardObjectManager,setNewBoardViewLayout} = newBoardReducer.actions;
 
 export default newBoardReducer.reducer;

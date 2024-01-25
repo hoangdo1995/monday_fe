@@ -1,0 +1,36 @@
+// custom calender table
+.calender-cell-day[index="20"]::after{
+    content: 'Project 1';
+    background-color: #fdab3e;
+    display: block;
+    position: absolute;
+    color:white;
+    padding: 2px 5px;
+    font-size: 13px;
+    border-radius: 3px;
+
+}
+
+.calender-cell-day[index="22"]::after{
+    content: 'Project 2';
+    background-color: #00c875;
+    display: block;
+    position: absolute;
+    color:white;
+    padding: 2px 5px;
+    font-size: 13px;
+    border-radius: 3px;
+
+}
+
+.calender-cell-day[index="24"]::after{
+    content: 'Project 3';
+    background-color: #e2435c;
+    display: block;
+    position: absolute;
+    color:white;
+    padding: 2px 5px;
+    font-size: 13px;
+    border-radius: 3px;
+
+}

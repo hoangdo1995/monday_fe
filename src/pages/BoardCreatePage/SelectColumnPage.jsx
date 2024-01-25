@@ -3,7 +3,7 @@ import LogoComponent from "../../components/LogoComponent";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
 import { useDispatch, useSelector } from "react-redux";
 import DirectionButtonGray from "../../components/DirectionButtonGray";
-import ColumnItemSelect from "../../components/ColumnItemSelect";
+import ItemSelect from "../../components/ItemSelect";
 import { columnDesc } from "../../utils/defaultValue";
 import { columnTitleList } from "../../utils/defaultValue";
 import RenderColumnCreateBoard from "../../components/RenderColumnCreateBoard";
@@ -54,15 +54,15 @@ const SelectColumnPage = () => {
               <h3 className="text-2xl font-medium mt-20 mb-8 text-gray-700">Let's select the relevant columns for your board</h3>
               <div className="mb-4 text-gray-700 text-base">Choose from the most popular column types for your work</div>
               <div className="ps-2">
-                <ColumnItemSelect value={'owner'} svgLink={'/images/icons/owner_icon.svg'} handlerClick={selectColumnListHanlder}  backgroundColor={'#65ccff'} checked={listColumn.includes('owner')}/>
-                <ColumnItemSelect value={'status'} svgLink={'/images/icons/status_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#34d391' checked={listColumn.includes('status')}/>
-                <ColumnItemSelect value={'due_date'} title={'due date'} svgLink={'/images/icons/due_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#b0dc51' checked={listColumn.includes('due_date')}/>
-                <ColumnItemSelect value={'files'} svgLink={'/images/icons/file_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#65ccff' checked={listColumn.includes('files')}/>
-                <ColumnItemSelect value={'priority'} svgLink={'/images/icons/priority_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#ffcb02'checked={listColumn.includes('priority')}/>
-                <ColumnItemSelect value={'timeline'} svgLink={'/images/icons/time_line_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#b57de3' checked={listColumn.includes('timeline')}/>
-                <ColumnItemSelect value={'budget'} svgLink={'/images/icons/budget_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#ffd532' checked={listColumn.includes('budget')}/>
-                <ColumnItemSelect value={'last_update'} svgLink={'/images/icons/update_icon.svg'} title={'last update'}  handlerClick={selectColumnListHanlder} backgroundColor='#f55f7c' checked={listColumn.includes('last_update')}/>
-                <ColumnItemSelect value={'notes'} svgLink={'/images/icons/note_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#7aaefd' checked={listColumn.includes('notes')}/>
+                <ItemSelect value={'owner'} svgLink={'/images/icons/owner_icon.svg'} handlerClick={selectColumnListHanlder}  backgroundColor={'#65ccff'} checked={listColumn.includes('owner')}/>
+                <ItemSelect value={'status'} svgLink={'/images/icons/status_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#34d391' checked={listColumn.includes('status')}/>
+                <ItemSelect value={'due_date'} title={'due date'} svgLink={'/images/icons/due_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#b0dc51' checked={listColumn.includes('due_date')}/>
+                <ItemSelect value={'files'} svgLink={'/images/icons/file_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#65ccff' checked={listColumn.includes('files')}/>
+                <ItemSelect value={'priority'} svgLink={'/images/icons/priority_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#ffcb02'checked={listColumn.includes('priority')}/>
+                <ItemSelect value={'timeline'} svgLink={'/images/icons/time_line_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#b57de3' checked={listColumn.includes('timeline')}/>
+                <ItemSelect value={'budget'} svgLink={'/images/icons/budget_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#ffd532' checked={listColumn.includes('budget')}/>
+                <ItemSelect value={'last_update'} svgLink={'/images/icons/update_icon.svg'} title={'last update'}  handlerClick={selectColumnListHanlder} backgroundColor='#f55f7c' checked={listColumn.includes('last_update')}/>
+                <ItemSelect value={'notes'} svgLink={'/images/icons/note_icon.svg'} handlerClick={selectColumnListHanlder} backgroundColor='#7aaefd' checked={listColumn.includes('notes')}/>
               </div>
               <div className="text-gray-600 font-normal mb-8 mt-5 p-3 rounded-lg bg-slate-100" style={{fontSize:14}}>
                 <div className="owner-desc">

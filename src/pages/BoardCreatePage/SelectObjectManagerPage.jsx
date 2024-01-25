@@ -3,8 +3,6 @@ import LogoComponent from "../../components/LogoComponent";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
 import { useDispatch, useSelector } from "react-redux";
 import DirectionButtonGray from "../../components/DirectionButtonGray";
-import ColumnItemSelect from "../../components/ColumnItemSelect";
-import { columnDesc } from "../../utils/defaultValue";
 import { columnTitleList } from "../../utils/defaultValue";
 import RenderColumnCreateBoard from "../../components/RenderColumnCreateBoard";
 import RadioInput from "../../components/RadioInput";
@@ -35,10 +33,10 @@ const SelectObjectManagerPage = () => {
                 {/* //content */}
                 <RadioInput value='project' customStyle={{border:'none'}} name='objectManager' setValue={objectSelectHandler}/>
                 <RadioInput value='task' customStyle={{border:'none'}} name='objectManager' setValue={objectSelectHandler}/>
-                <RadioInput title={<InputText placeholder="Custom" onClickHandler={()=>{
+                <RadioInput title={<InputText id='customObjectManagerInput' placeholder="Custom" clearButton={true} onClickHandler={()=>{
                     const customRadio = document.querySelector(`input[name='objectManager'][value='custom']`);
                     customRadio.checked = true;
-                }} onChangeHandler={(event)=>objectSelectHandler(event.currentTarget.value)} customStyle={{width:100,padding:'3px 10px',transform:'translateY(-4.5px)'}}/>} customStyle={{border:'none'}} name='objectManager' value='custom'/>
+                }} onChangeHandler={(event)=>objectSelectHandler(event.currentTarget.value?event.currentTarget.value:'project')} customStyle={{width:100,padding:'3px 10px',transform:'translateY(-4.5px)'}}/>} customStyle={{border:'none'}} name='objectManager' value='custom'/>
               </div>
               <div className="text-gray-600 font-normal mb-8 mt-5 p-3 rounded-lg bg-slate-100" style={{fontSize:14}}>
                 <div className="owner-desc">
@@ -47,7 +45,7 @@ const SelectObjectManagerPage = () => {
               </div>
               <div className="flex justify-between">
                   <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={'select-column'}/>
-                  <DirectionButtonDefault linkRouter={'select-object'} title={<div className='flex items-center'><span className='font-light tracking-wide'>Next</span><i className="fa fa-chevron-right text-xs ms-1"></i></div>} active={objectManager?true:false}/>
+                  <DirectionButtonDefault linkRouter={'select-view-layout'} title={<div className='flex items-center'><span className='font-light tracking-wide'>Next</span><i className="fa fa-chevron-right text-xs ms-1"></i></div>} active={objectManager?true:false}/>
               </div>
           </div>
       </div>

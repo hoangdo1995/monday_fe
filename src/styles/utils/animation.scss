@@ -2,3 +2,49 @@
     transform: rotate(-180deg);
     transition: all 0.5s;
 }
+
+
+
+//grow in animation
+@keyframes grow-in{
+    0% {width: 0%;}
+    50% {width: 50%;}
+    100% {width: 100%;}
+}
+
+.grow-in{
+    animation-name: grow-in;
+    animation-timing-function: linear;
+    animation-duration: .5s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes scale-in{
+    0% {transform: scaleX(0%);}
+    100% {transform: scaleX(100%);}
+}
+
+.scale-in{
+    animation-name: scale-in;
+    animation-duration: .5s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+}
+
+@keyframes text-fade-in{
+    0%{color: transparent;}
+    25%{color: transparent;}
+    50%{color: transparent;}
+    90%{color: transparent;}
+    100%{color: white;}
+}
+.text-fade-in{
+    animation: text-fade-in;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+    
+}
+
+
+
