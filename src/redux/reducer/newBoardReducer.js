@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    name:'',
-    listColumn:['owner','status','due_date'],
-    objectManager:'project',
-    viewLayout:null
+    name:null,
+    listColumn:[],
+    objectManager:null,
+    viewLayout:null,
+    taskNameList:null
 };
 
 const newBoardReducer = createSlice({
@@ -22,10 +23,13 @@ const newBoardReducer = createSlice({
     },
     setNewBoardViewLayout(state,{payload}){
       state.viewLayout = payload;
+    },
+    setTaskNameList(state,{payload}){
+      state.taskNameList = payload;
     }
   },
 });
 
-export const {setNewBoardName,setNewBoardListColumn,setNewBoardObjectManager,setNewBoardViewLayout} = newBoardReducer.actions;
+export const {setNewBoardName,setNewBoardListColumn,setNewBoardObjectManager,setNewBoardViewLayout,setTaskNameList} = newBoardReducer.actions;
 
 export default newBoardReducer.reducer;

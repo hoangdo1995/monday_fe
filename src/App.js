@@ -9,6 +9,9 @@ import CreateBoardPage1 from './pages/BoardCreatePage/CreateBoardPage1';
 import SelectColumnPage from './pages/BoardCreatePage/SelectColumnPage';
 import SelectViewLayoutPage from './pages/BoardCreatePage/SelectViewLayoutPage';
 import SelectObjectManagerPage from './pages/BoardCreatePage/SelectObjectManagerPage';
+import CreateNewBoardTemplate from './templates/CreateNewBoardTemplate/CreateNewBoardTemplate';
+import EnterBoardNamePage from './pages/BoardCreatePage/EnterBoardNamePage';
+import EnterTaskNamePage from './pages/BoardCreatePage/EnterTaskNamePage';
 
 
 function App() {
@@ -45,10 +48,11 @@ function App() {
         },
         {
           path:'create-board',
+          element:<CreateNewBoardTemplate/>,
           children:[
             {
               path:'set-name',
-              element:<CreateBoardPage1/>
+              element:<EnterBoardNamePage/>
             },
             {
               path:'select-column',
@@ -61,6 +65,10 @@ function App() {
             {
               path:'select-view-layout',
               element:<SelectViewLayoutPage/>
+            },
+            {
+              path:'enter-task-name',
+              element:<EnterTaskNamePage/>
             }
           ]
         }

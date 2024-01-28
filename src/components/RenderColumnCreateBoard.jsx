@@ -109,6 +109,51 @@ const RenderColumnCreateBoard = (props) => {
     {listColumn.map((item,index)=>{
         return listColumnRender[item]
     })}
+    {(listColumn.length===0)?<>
+        <div className="column-sm w-full">
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+        </div>
+        <div className="column-sm w-full">
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+        </div>
+        <div className="column-sm w-full">
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+            <div className="row-sm">
+                <div className="skeleton-line bg-slate-300 rounded" style={{width:'45%',height:5}}></div>
+            </div>
+        </div>
+        
+    </>:''}
   </>;
 };
 
