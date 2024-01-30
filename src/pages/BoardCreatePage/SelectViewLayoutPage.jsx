@@ -41,27 +41,32 @@ const SelectViewLayoutPage = () => {
             dispatch(action);
         }
     },[])
-  return <div className="">
-  <h3 className="text-2xl font-medium mt-20 mb-3 text-gray-700">Add a view layout</h3>
-  <div className='text-slate-600 mb-10'>
-    Transform the way you see and manage your work with more unique views. You can always add more later.
-  </div>
-  <div className="flex justify-start items-center flex-wrap ps-2">
-    {/* //content */}
-    <ItemSelect value='table' svgLink='/images/icons/table_icon.svg' backgroundColor='#784bd1' handlerClick={layoutSelectHandler} checked={viewLayout==='table'}/>
-    <ItemSelect value='cards' svgLink='/images/icons/card_icon.svg' backgroundColor='#ff642e' handlerClick={layoutSelectHandler} checked={viewLayout==='cards'}/>
-    <ItemSelect value='gantt' svgLink='/images/icons/gantt_icon.svg' backgroundColor='#027f4b' handlerClick={layoutSelectHandler} checked={viewLayout==='gantt'}/>
-    <ItemSelect value='calender' svgLink='/images/icons/calender_icon.svg' backgroundColor='#faa1f1' handlerClick={layoutSelectHandler} checked={viewLayout==='calender'}/>
-    <ItemSelect value='kanban' svgLink='/images/icons/kanban_icon.svg' backgroundColor='#2a76e5' handlerClick={layoutSelectHandler} checked={viewLayout==='kanban'}/>
-    <ItemSelect value='timeline' svgLink='/images/icons/time_line_icon.svg' backgroundColor='#fdaa3c' handlerClick={layoutSelectHandler} checked={viewLayout==='timeline'}/>
-  </div>
-  <div style={{height:150}}>
-    <div className="text-gray-600 font-normal mb-8 mt-5 p-3 rounded-lg bg-slate-100 border-l-4" style={{fontSize:14,borderColor:viewBgColor[viewLayout]}}>
-    <div className="layout-desc">
-        {layoutViewList[`${viewLayout}`]}
+  return <div className="w-full h-full flex flex-col justify-between" style={{maxHeight:700}}>
+    <div className="header">
+              <LogoComponent/>
     </div>
-  </div>
-  </div>
+    <div>
+        <h3 className="text-2xl font-medium mt-20 mb-3 text-gray-700">Add a view layout</h3>
+    <div className='text-slate-600 mb-10'>
+        Transform the way you see and manage your work with more unique views. You can always add more later.
+    </div>
+    <div className="flex justify-start items-center flex-wrap ps-2">
+        {/* //content */}
+        <ItemSelect value='table' svgLink='/images/icons/table_icon.svg' backgroundColor='#784bd1' handlerClick={layoutSelectHandler} checked={viewLayout==='table'}/>
+        <ItemSelect value='cards' svgLink='/images/icons/card_icon.svg' backgroundColor='#ff642e' handlerClick={layoutSelectHandler} checked={viewLayout==='cards'}/>
+        <ItemSelect value='gantt' svgLink='/images/icons/gantt_icon.svg' backgroundColor='#027f4b' handlerClick={layoutSelectHandler} checked={viewLayout==='gantt'}/>
+        <ItemSelect value='calender' svgLink='/images/icons/calender_icon.svg' backgroundColor='#faa1f1' handlerClick={layoutSelectHandler} checked={viewLayout==='calender'}/>
+        <ItemSelect value='kanban' svgLink='/images/icons/kanban_icon.svg' backgroundColor='#2a76e5' handlerClick={layoutSelectHandler} checked={viewLayout==='kanban'}/>
+        <ItemSelect value='timeline' svgLink='/images/icons/time_line_icon.svg' backgroundColor='#fdaa3c' handlerClick={layoutSelectHandler} checked={viewLayout==='timeline'}/>
+    </div>
+    <div style={{height:150}}>
+        <div className="text-gray-600 font-normal mb-8 mt-5 p-3 rounded-lg bg-slate-100 border-l-4" style={{fontSize:14,borderColor:viewBgColor[viewLayout]}}>
+        <div className="layout-desc">
+            {layoutViewList[`${viewLayout}`]}
+        </div>
+    </div>
+    </div>
+    </div>
   <div className="flex justify-between">
       <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={'select-object'}/>
       <DirectionButtonDefault linkRouter={'enter-task-name'} title={<div className='flex items-center'><span className='font-light tracking-wide'>Next</span><i className="fa fa-chevron-right text-xs ms-1"></i></div>} active={objectManager?true:false}/>

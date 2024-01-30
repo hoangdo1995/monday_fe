@@ -9,9 +9,10 @@ import * as Yup from 'yup';
 import { history } from "../..";
 import LabelError from "../../components/LabelError";
 import { setTaskNameList } from "../../redux/reducer/newBoardReducer";
+import { getValueById } from "../../utils/util";
 
 const EnterTaskNamePage = () => {
-    const {objectManager,taskNameList} = useSelector((state)=>state.newBoardReducer);
+    const {objectManager,taskNameList,viewLayout} = useSelector((state)=>state.newBoardReducer);
     const dispatch = useDispatch();
     const formik = useFormik({
         initialValues:{
@@ -30,12 +31,11 @@ const EnterTaskNamePage = () => {
     });
     const handlerEnterTaskName = (event)=>{
         formik.handleChange(event);
-        const action = setTaskNameList([formik.values.taskName1,formik.values.taskName2,formik.values.taskName3]);
+        const action = setTaskNameList([getValueById('taskName1'),getValueById('taskName2'),getValueById('taskName3')]);
         dispatch(action);
     }
     useEffect(()=>{
         if(!taskNameList){
-            alert('')
             const action = setTaskNameList([`${objectManager} 1`,`${objectManager} 2`,`${objectManager} 3`]);
             formik.values.taskName1 = `${objectManager} 1`;
             formik.values.taskName2 = `${objectManager} 2`;
@@ -44,11 +44,11 @@ const EnterTaskNamePage = () => {
         }
     },[taskNameList])
 
-  return <form className="w-full h-2/3 flex flex-col justify-between" onSubmit={formik.handleSubmit} >
+  return <form className="w-full h-full flex flex-col justify-between" style={{maxHeight:700}} onSubmit={formik.handleSubmit} >
     <div className="header">
               <LogoComponent/>
-          </div>
-    <div className="w-full" onSubmit={formik.handleSubmit} >
+    </div>
+    <div className="w-full mt-10" onSubmit={formik.handleSubmit} >
         <h3 className="text-2xl text-slate-700 font-medium mb-8">List your projects</h3>
         <div className="w-full my-10">
             <InputText defaultValue={taskNameList?taskNameList[0]:`${objectManager} 1`} clearButton={true} id={'taskName1'} onChangeHandler={handlerEnterTaskName} customStyle={{padding:'5px 15px',width:'100%'}} clearButtonStyle={{top:'7.5%',right:'3px',width:30,height:'85%',display:'flex'}}/>
@@ -61,8 +61,8 @@ const EnterTaskNamePage = () => {
         </div>
     </div>
     <div className="flex justify-between">
-        <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={'select-view-layout'}/>
-        <DirectionButtonDefault  linkRouter={''} title={<div className='flex items-center'><span className='font-light tracking-wide'>Next</span><i className="fa fa-chevron-right text-xs ms-1"></i></div>} active={true}/>
+        <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i>Back</span>} linkRouter={'select-view-layout'}/>
+        <DirectionButtonDefault  linkRouter={'group-task'} title={<div className='flex items-center'><span className='font-light tracking-wide'>{(viewLayout==='table')?'Get started':<>Next <i className="fa fa-chevron-right text-xs ms-1"></i></>}</span></div>} active={true}/>
     </div>
     <button className="hidden" type="submit"></button>
 </form>

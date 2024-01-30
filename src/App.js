@@ -12,6 +12,7 @@ import SelectObjectManagerPage from './pages/BoardCreatePage/SelectObjectManager
 import CreateNewBoardTemplate from './templates/CreateNewBoardTemplate/CreateNewBoardTemplate';
 import EnterBoardNamePage from './pages/BoardCreatePage/EnterBoardNamePage';
 import EnterTaskNamePage from './pages/BoardCreatePage/EnterTaskNamePage';
+import EnterGroupTaskPage from './pages/BoardCreatePage/EnterGroupTaskPage';
 
 
 function App() {
@@ -69,6 +70,10 @@ function App() {
             {
               path:'enter-task-name',
               element:<EnterTaskNamePage/>
+            },
+            {
+              path:'group-task',
+              element:<EnterGroupTaskPage/>
             }
           ]
         }

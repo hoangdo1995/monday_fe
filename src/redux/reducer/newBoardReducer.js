@@ -5,7 +5,11 @@ const initialState = {
     listColumn:[],
     objectManager:null,
     viewLayout:null,
-    taskNameList:null
+    taskNameList:null,
+    groupName:{
+      groupTask1:null,
+      groupTask2:null
+    }
 };
 
 const newBoardReducer = createSlice({
@@ -26,10 +30,17 @@ const newBoardReducer = createSlice({
     },
     setTaskNameList(state,{payload}){
       state.taskNameList = payload;
+    },
+    setGroupName1(state,{payload}){
+      state.groupName.groupTask1 = payload;
+    },
+    setGroupName2(state,{payload}){
+      state.groupName.groupTask2 = payload;
     }
+
   },
 });
 
-export const {setNewBoardName,setNewBoardListColumn,setNewBoardObjectManager,setNewBoardViewLayout,setTaskNameList} = newBoardReducer.actions;
+export const {setNewBoardName,setNewBoardListColumn,setNewBoardObjectManager,setNewBoardViewLayout,setTaskNameList,setGroupName1,setGroupName2} = newBoardReducer.actions;
 
 export default newBoardReducer.reducer;

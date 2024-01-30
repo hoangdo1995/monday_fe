@@ -7,10 +7,12 @@ import BreakDownArrow from "../../components/utilComponents/BreakDownArrow";
 import { Outlet } from "react-router-dom";
 
 const CreateNewBoardTemplate = () => {
-    const {viewLayout,objectManager,name,listColumn,taskNameList} = useSelector((state)=>state.newBoardReducer);
+    const {viewLayout,objectManager,name,listColumn,taskNameList,groupName} = useSelector((state)=>state.newBoardReducer);
     const dispatch = useDispatch();
     //mảng chưa các giá trị ngày cho render calender layout
     const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,1,2,3,4,5,6,7,8,9,10,11];
+    const dayTask = [8,10,12];
+    const cellBgColor = ['#fdab3e','#00c875','#e2435c']
     // render timeline column table
     function renderColsTimeline(cols = 7, rowIndex = 1, anchor = 1, delayAnimation = 0, background) {
         let result = [];
@@ -18,7 +20,7 @@ const CreateNewBoardTemplate = () => {
         while (i <= cols) {
             const temp = <div className="border-gray-400 flex justify-center items-center relative grow-in" style={{ borderLeftWidth: 1.5, animationDuration: '.5s', animationDelay: delayAnimation }} col={i} row={rowIndex}>
                 {(i === anchor) && <div className="capitalize font-medium text-xs rounded  w-full text-white flex justify-center items-center py-1 absolute text-fade-in truncate" style={{ width: '200%', left: 0, zIndex: 2, backgroundColor: background ? background : '#fdaa3c', animationDuration: '.7s', animationDelay: delayAnimation }}>
-                    {objectManager} {rowIndex}
+                {taskNameList?taskNameList[(i-1)/2]:`${objectManager} 3`}
                 </div>}
             </div>;
             i++;
@@ -26,16 +28,13 @@ const CreateNewBoardTemplate = () => {
         }
         return result;
     }
+
     useEffect(()=>{
 
-    },[taskNameList])
+    },[taskNameList,name])
   return <div className="flex h-screen">
   <div className="content-container w-full sm:w-6/12 flex justify-center items-center">
       <div className="content max-w-md p-3 w-full flex flex-col h-full justify-center items-center py-20">
-          {/* <div className="header">
-              <LogoComponent/>
-          </div> */}
-          {/* content control body */}
           <Outlet/>
       </div>
   </div>
@@ -56,8 +55,13 @@ const CreateNewBoardTemplate = () => {
                     <div className="px-3"><i class="fa fa-plus text-sm"></i></div>
                     </div>:<div className="skeleton-line rounded mb-5" style={{width:'23%',height:5,backgroundColor:'#6799f5'}}></div>}
               </div>
+              
               {/* table layout */}
-              {(viewLayout==='table'||viewLayout===null)&&<><div className="table rounded-tl-lg w-full rounded-bl-lg">
+              {(viewLayout==='table'||viewLayout===null)&&<>
+              <div className="title">
+                  {groupName.groupTask1?<div className="text-xl font-medium text-blue-500 mt-6 mb-4 ms-2">{groupName.groupTask1}</div>:''}
+              </div>
+              <div className="table rounded-tl-lg w-full rounded-bl-lg">
                 <div className="body flex w-full justify-start items-start">
                     <div className="column-sm max-w-full flex flex-col text-gray-500 font-medium">
                         <div className="row-sm w-full rounded-tl-lg !border-l-blue-500 !justify-start ps-5" style={{borderLeftWidth:6,width:150}}>
@@ -89,8 +93,8 @@ const CreateNewBoardTemplate = () => {
                 </div>
               </div>
               <div className="title">
-                  <div className="skeleton-line bg-green-500 rounded mt-10 mb-6" style={{width:'21%',height:5}}>
-                  </div>
+              {groupName.groupTask2?<div className="text-xl font-medium text-green-500 mt-6 mb-4 ms-2">{groupName.groupTask2}</div>:<div className="skeleton-line bg-green-500 rounded mt-10 mb-6" style={{width:'21%',height:5}}>
+                  </div>}
               </div>
               <div className="table w-full rounded-tl-lg rounded-bl-lg">
                 <div className="body flex w-full justify-start items-start">
@@ -141,7 +145,7 @@ const CreateNewBoardTemplate = () => {
                                 <i class="fa fa-plus p-2 rounded-full text-white bg-slate-300"></i>
                             </div>
                             <div className="flex justify-between px-2 my-2">
-                                <h3 className="capitalize text-gray-800 text-lg font-light">{objectManager} 1</h3>
+                                <h3 className="capitalize text-gray-800 text-lg font-light">{taskNameList?taskNameList[0]:`${objectManager} 1`}</h3>
                                 <span>
                                     <img src="/images/icons/chat_add_icon.svg" alt="" />
                                 </span>
@@ -176,7 +180,7 @@ const CreateNewBoardTemplate = () => {
                                 <i class="fa fa-plus p-2 rounded-full text-white bg-slate-300"></i>
                             </div>
                             <div className="flex justify-between px-2 my-2">
-                                <h3 className="capitalize text-gray-800 text-lg font-light">{objectManager} 2</h3>
+                                <h3 className="capitalize text-gray-800 text-lg font-light">{taskNameList?taskNameList[1]:`${objectManager} 2`}</h3>
                                 <span>
                                     <img src="/images/icons/chat_add_icon.svg" alt="" />
                                 </span>
@@ -209,15 +213,16 @@ const CreateNewBoardTemplate = () => {
                     </div>
                 </div>
               </div>}
+              {/* gantt layout */}
               {viewLayout==='gantt'&&<div>
                     <div>
                         <div className="w-full text-center font-medium text-base text-slate-700 mb-3">January 2024</div>
                         <div className="flex relative line-vertical-through">
                             <div className="flex flex-col min-w-40">
                                 <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:40}}></div>
-                                <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}>project 1</div>
-                                <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}>project 2</div>
-                                <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}>project 3</div>
+                                <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}>{taskNameList?taskNameList[0]:`${objectManager} 1`}</div>
+                                <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}>{taskNameList?taskNameList[1]:`${objectManager} 2`}</div>
+                                <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}>{taskNameList?taskNameList[2]:`${objectManager} 3`}</div>
                                 <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}></div>
                                 <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}></div>
                                 <div className="border-e capitalize flex items-center justify-center text-sm font-medium" style={{height:45}}></div>
@@ -226,7 +231,7 @@ const CreateNewBoardTemplate = () => {
                             <div className="flex flex-col border-t-2" style={{width:75}}>
                                 <div className="border-x flex items-center justify-center w-full" style={{height:40}}></div>
                                 <div className="border-x flex items-center justify-center w-full relative ease-in grow-in" style={{height:40}}>
-                                    <div className="bg-blue-400 hover:bg-blue-300 cursor-pointer rounded text-white text-xs absolute start-0 flex items-center justify-center capitalize text-fade-in" style={{height:25,width:'200%',animationDuration:'.6s'}}>{objectManager} 1
+                                    <div className="bg-blue-400 hover:bg-blue-300 cursor-pointer rounded text-white text-xs absolute start-0 flex items-center justify-center capitalize text-fade-in" style={{height:25,width:'200%',animationDuration:'.6s'}}>{taskNameList?taskNameList[0]:`${objectManager} 1`}
                                             <BreakDownArrow/>
                                     </div>
                                 </div>
@@ -251,7 +256,7 @@ const CreateNewBoardTemplate = () => {
                                 <div className="border-x flex items-center justify-center w-full" style={{height:40}}></div>
                                 <div className="border-x flex items-center justify-center w-full" style={{height:40}}></div>
                                 <div className="border-x flex items-center justify-center w-full relative grow-in" style={{height:45,animationDelay:'.5s'}}>
-                                    <div className="bg-blue-400 hover:bg-blue-300 cursor-pointer rounded text-white text-xs start-0 flex items-center justify-center  absolute capitalize text-fade-in" style={{height:25,width:'200%',animationDuration:'.6s',animationDelay:'.5s'}}>Project 2
+                                    <div className="bg-blue-400 hover:bg-blue-300 cursor-pointer rounded text-white text-xs start-0 flex items-center justify-center  absolute capitalize text-fade-in" style={{height:25,width:'200%',animationDuration:'.6s',animationDelay:'.5s'}}>{taskNameList?taskNameList[1]:`${objectManager} 2`}
                                         <BreakDownArrow delay={'.75s'}/>
                                     </div>
                                     
@@ -277,7 +282,7 @@ const CreateNewBoardTemplate = () => {
                                 <div className="border-x flex items-center justify-center w-full" style={{height:40}}></div>
                                 <div className="border-x flex items-center justify-center w-full" style={{height:45}}></div>
                                 <div className="border-x flex items-center justify-center w-full relative grow-in" style={{height:45,animationDelay:'1s'}}>
-                                    <div className="bg-blue-400 hover:bg-blue-300 cursor-pointer rounded text-white text-xs absolute start-0 flex items-center justify-center capitalize text-fade-in" style={{height:25,width:'200%',animationDuration:'.6s',animationDelay:'1s'}}>Project 3</div>
+                                    <div className="bg-blue-400 hover:bg-blue-300 cursor-pointer rounded text-white text-xs absolute start-0 flex items-center justify-center capitalize text-fade-in" style={{height:25,width:'200%',animationDuration:'.6s',animationDelay:'1s'}}>{taskNameList?taskNameList[2]:`${objectManager} 3`}</div>
                                 </div>
                                 <div className="border-x flex items-center justify-center w-full" style={{height:45}}></div>
                                 <div className="border-x flex items-center justify-center w-full" style={{height:45}}></div>
@@ -307,6 +312,7 @@ const CreateNewBoardTemplate = () => {
                         </div>
                     </div>
               </div>}
+              {/* kanban layout */}
               {viewLayout==='kanban'&&<div>
                     <div className="flex gap-8 overflow-auto pb-3">
                         <div className="kanban-item text-gray-500 font-medium">
@@ -316,7 +322,7 @@ const CreateNewBoardTemplate = () => {
                                 </div>
                                 <div className="bg-slate-100 px-2 py-3 text-sm">
                                     <div className="bg-white px-3 py-2 rounded">
-                                        <h3 className="py-2 text-gray-600 font-semibold capitalize text-base">{objectManager} 1</h3>
+                                        <h3 className="py-2 text-gray-600 font-semibold capitalize text-base">{taskNameList?taskNameList[0]:`${objectManager} 1`}</h3>
                                         <div className="flex justify-between items-center w-full">
                                             <span className="w-6/12">Owner</span>
                                             <div className="justify-center flex py-1 bg-slate-100 w-6/12">
@@ -346,7 +352,7 @@ const CreateNewBoardTemplate = () => {
                                 </div>
                                 <div className="bg-slate-100 px-2 py-3 text-sm">
                                     <div className="bg-white px-3 py-2 rounded">
-                                        <h3 className="py-2 text-gray-600 font-semibold capitalize text-base">{objectManager} 2</h3>
+                                        <h3 className="py-2 text-gray-600 font-semibold capitalize text-base">{taskNameList?taskNameList[1]:`${objectManager} 2`}</h3>
                                         <div className="flex justify-between items-center w-full">
                                             <span className="w-6/12">Owner</span>
                                             <div className="justify-center flex py-1 bg-slate-100 w-6/12">
@@ -378,7 +384,7 @@ const CreateNewBoardTemplate = () => {
                                 </div>
                                 <div className="bg-slate-100 px-2 py-3 text-sm">
                                     <div className="bg-white px-3 py-2 rounded">
-                                        <h3 className="py-2 text-gray-600 font-semibold capitalize text-base">{objectManager} 3</h3>
+                                        <h3 className="py-2 text-gray-600 font-semibold capitalize text-base">{taskNameList?taskNameList[2]:`${objectManager} 3`}</h3>
                                         <div className="flex justify-between items-center w-full">
                                             <span className="w-6/12">Owner</span>
                                             <div className="justify-center flex py-1 bg-slate-100 w-6/12">
@@ -405,6 +411,7 @@ const CreateNewBoardTemplate = () => {
                         </div>
                     </div>
               </div>}
+              {/* calender layout */}
               {viewLayout==='calender'&&<div>
                 <div>
                     <div className="font-medium text-xl text-slate-700 tracking-wide mb-5 ms-6">January 2024</div>
@@ -433,7 +440,11 @@ const CreateNewBoardTemplate = () => {
                             </div>
                         </div>
                         <div className="w-full grid grid-cols-7 grid-rows-6 border-collapse">
-                            {daysArray.map((value,index)=><div className={`calender-cell-day text-end px-3 py-2 border-gray-300 ${(index>30)?'text-gray-400':'text-gray-600'}`} style={{height:60,borderTopWidth:1.5,borderRightWidth:1.5}} index={index}>{value}</div>)}
+                            {daysArray.map((value,index)=><div className={`calender-cell-day text-end px-3 py-2 relative border-gray-300 ${(index>30)?'text-gray-400':'text-gray-600'}`} style={{height:60,borderTopWidth:1.5,borderRightWidth:1.5}} index={index}>
+                                {value}{dayTask.includes(index)?
+                                <div className="task-title truncate" style={{backgroundColor:cellBgColor[dayTask.indexOf(index)]}}>{taskNameList?taskNameList[dayTask.indexOf(index)]:`${objectManager} ${dayTask.indexOf(index)+1}`}
+                                </div>:''}
+                            </div>)}
                         </div>
                     </div>
                 </div>
@@ -451,15 +462,15 @@ const CreateNewBoardTemplate = () => {
                     </div>
                     <div className="line-vertical-through relative">
                         <div className="grid grid-cols-7">
-                            <div className="capitalize text-gray-700 font-medium flex items-center justify-end pe-2 py-7">{objectManager} 1</div>
+                            <div className="capitalize text-gray-700 font-medium flex items-center justify-end pe-2 py-7">{taskNameList?taskNameList[0]:`${objectManager} 1`}</div>
                             {renderColsTimeline(6,1)}
                         </div>
                         <div className="grid grid-cols-7">
-                            <div className="capitalize text-gray-700 font-medium flex items-center justify-end pe-2 py-7">{objectManager} 2</div>
+                            <div className="capitalize text-gray-700 font-medium flex items-center justify-end pe-2 py-7">{taskNameList?taskNameList[1]:`${objectManager} 2`}</div>
                             {renderColsTimeline(6,2,3,'.5s','#00c875')}
                         </div>
                         <div className="grid grid-cols-7">
-                            <div className="capitalize text-gray-700 font-medium flex items-center justify-end pe-2 py-7">{objectManager} 3</div>
+                            <div className="capitalize text-gray-700 font-medium flex items-center justify-end pe-2 py-7">{taskNameList?taskNameList[2]:`${objectManager} 3`}</div>
                             {renderColsTimeline(6,3,5,'1s','#e2435c')}
                         </div>
                     </div>
