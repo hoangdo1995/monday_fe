@@ -1,0 +1,205 @@
+.dashboard{
+    background-color: var(--header-background);
+    color:var(--color-text-main);
+    .dashboard-navigate{
+        background-color: var(--color-body-bg);
+        min-width: 35px;
+        .dashboard-navigate-content{
+            .navigate-item{
+                padding: 5px 8px;
+                border-radius: 4px;
+                margin-bottom: 3px;
+                font-size: 14px;
+                cursor: pointer;
+                i{
+                    width: 25px;
+                    text-align: center;
+                }
+                &:hover{
+                    background-color: var(--color-menu-item-hover-background);
+                }
+            }
+            .navigate-item.active{
+                background-color: var(--color-theme-active-background);
+            }
+            .workspace-button{
+                &:hover{
+                    background-color: var(--color-menu-item-hover-background);
+                }
+                
+            }
+            .workspace-button.active{
+                background-color: var(--color-theme-active-background);
+            }
+            .workspace-search-bar{
+                input{
+                    &:hover~.workspace-filter-button{
+                        display: block;
+                    }
+                    &:focus~.workspace-filter-button{
+                        display: block;
+                    }
+                }
+                .workspace-filter-button{
+                    cursor: pointer;
+                    padding: 0px 5px;
+                    display: none;
+                    &:hover{
+                        background-color: var(--color-menu-item-hover-background);
+                        display: block;
+                    }
+                    i{
+                        // -webkit-text-fill-color: white;
+                        -webkit-text-stroke: 1px var(--color-text-main);
+                    }
+                }
+            }
+            .workspace-add{
+                width: 30px;
+                i{
+                    background-color: var(--color-btn-bg-light);
+                    &:hover{
+                        background-color: var(--color-btn-bg-light-hover);
+                    }
+                    &:active{
+                        transform: scale(.9);
+                    }
+                }
+            }
+        }
+        .toggle-button{
+            background-color: var(--color-background-dropdown);
+        }
+    }
+    .dashboard-content{
+        background-color: var(--color-body-bg);
+        @import './dashboardHome.scss';
+    }
+}
+
+// dropdown style
+//workspace dropdown
+.ant-dropdown.workspace-dropdown{
+    .ant-dropdown-menu{
+        background-color: var(--color-background-dropdown);
+        box-shadow: 0px 0px 30px -5px rgba(0,0,0,.6);
+        padding: 0;
+        .ant-dropdown-menu-item{
+            padding: 0;
+            .ant-dropdown-menu-title-content{
+                color: var(--color-text-main);
+                input{
+                    background-color: var(--color-background-dropdown);
+                    width: 250px;
+                    padding:5px 10px;
+                }
+                .item-active{
+                    background-color: var(--color-theme-active-background);
+                }
+            }
+        }
+    }
+}
+//add workspace dropdown
+.ant-dropdown.add-workspace-dropdown{
+    .ant-dropdown-menu{
+        background-color: var(--color-background-dropdown);
+        box-shadow: 0px 0px 30px -5px rgba(0,0,0,.6);
+        padding: 10px 0;
+        min-width: 300px;
+        .ant-dropdown-menu-item{
+            padding: 0px;
+            margin: 0;
+            &:hover{
+                background-color: transparent;
+            }
+            .ant-dropdown-menu-title-content{
+                color: var(--color-text-main);
+                div{
+                    margin: 0 5px;
+                    padding: 7px 10px;
+                    border-radius: 3px;
+                    i{
+                        width: 25px;
+                        text-align: center;
+                        margin-right: 5px;
+                    }
+                    span{
+                        
+                    }
+                    &:hover{
+                        background-color: var(--color-menu-item-hover-background);
+                    }
+                }
+                div.break-line-bottom{
+                    margin: 0;
+                    padding: 0;
+                    div.flex{
+                        padding: 7px 10px;
+                        margin: 0 5px;
+                        margin-bottom: 5px;
+                    }
+                    div{
+                        padding: 0;
+                        margin: 0;
+                    }
+                    &:hover{
+                        background-color: transparent;
+                        div{
+                            background-color: var(--color-menu-item-hover-background);
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+.ant-dropdown.filter-dropdown{
+    .ant-dropdown-menu{
+        background-color: var(--color-background-dropdown);
+        box-shadow: 0px 0px 30px -5px rgba(0,0,0,.6);
+        padding: 15px 20px;
+        min-width: 250px;
+        .ant-dropdown-menu-item{
+            padding: 5px 0;
+            cursor: auto;
+            &:hover{
+                background-color: transparent;
+            }
+            .ant-dropdown-menu-title-content{
+                color: var(--color-text-main);
+                font-size: 15px;
+                input{
+                    display: none;
+                }
+                .filter-checkbox{
+                    display: inline-block;
+                    width: 18px;
+                    height: 18px;
+                    border-radius:3px;
+                    border: 1px solid var(--color-text-main);
+                    margin-right: 10px;
+                }
+                .filter-check{
+                    display: none;
+                    font-size: 13px;
+                    position: absolute;
+                    left: 3px;
+                    top: 10px;
+                    color: var(--color-text-main);
+
+                }
+                input:checked~.filter-checkbox{
+                    background-color: var(--color-btn-bg-light);
+                    border-color: transparent;
+                }
+                input:checked~.filter-check{
+                    display: inline-block;
+
+                }
+            }
+        }
+    }
+}

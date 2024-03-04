@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './styles/utils/animation.scss';
 @import './styles/helps/help.scss';
+@import './styles/components/header.scss';
+@import './styles/pages/dashboard.scss';
+@import './styles/utils/animation.scss';
 @import './styles/utils/default.scss';
 @import './styles/createBoardPage/createBoardPage.scss';
 

@@ -1,12 +1,25 @@
 // color
 $color-blue:#3171e2;
 $color-blue-gray:#0360b9;
+$color-blue-gray-1:#0060b9;
+$color-blue-light:#0173ea;
+$color-gray-blue-1:#133774;
+$color-gray-blue-light-1:#7182a0;
 $color-blue-2:#1f76c2;
 $color-white:#ffffff;
+$color-white-1:#d5d8df;
 $color-white-gray:#dcdfec;
 $color-gray-1:#c3c6d4;
 $color-gray-2:#323338;
+$color-gray-3:#878787;
+$color-gray-4:#57597d;
+$color-gray-5:#4b4e69;
 $color-black-1:#323338;
+$color-gray-violet:#292f4c;
+$color-gray-violet-1:#30324e;
+$color-dark-violet:#1d1f3b;
+
+
 
 //variable
 body{
@@ -16,11 +29,30 @@ body{
     --color-button-white-hover:#{$color-white-gray};
     //border-color
     --color-border-gray-1:#{$color-gray-1};
-    //text color
+    --color-break-line:#{$color-gray-4};
+    //---------------text color--------------
     --color-text-light:#{$color-white};
     --color-text-primary:#{$color-black-1};
     --color-text-secondary:#{$color-gray-2};
     --color-text-link:#{$color-blue-2};
+    // text theme color
+    --color-text-main:#{$color-white-1};
+
+    // --------------header color---------------------
+    --header-background:#{$color-gray-violet};
+    --color-background-dropdown:#{$color-gray-violet-1};
+    --color-theme-active-background:#{$color-gray-blue-1};
+    --color-menu-item-hover-background:#{$color-gray-blue-light-1};
+    --header-text-color:#{$color-white};
+    --tooltip-bg-color:#{$color-white};
+    --tooltip-text-color:#{$color-gray-3};
+    // -----------body color---------------------
+    --color-body-bg:#{$color-dark-violet};
+   
+    //-----------button color-------------------
+    --color-btn-bg-light:#{$color-blue-light};
+    --color-btn-bg-light-hover:#{$color-blue-gray-1};
+    --color-btn-none-bg-hover-color:#{$color-gray-5};
     }
 
 //font-weight

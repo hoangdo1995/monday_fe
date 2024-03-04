@@ -13,6 +13,10 @@ import CreateNewBoardTemplate from './templates/CreateNewBoardTemplate/CreateNew
 import EnterBoardNamePage from './pages/BoardCreatePage/EnterBoardNamePage';
 import EnterTaskNamePage from './pages/BoardCreatePage/EnterTaskNamePage';
 import EnterGroupTaskPage from './pages/BoardCreatePage/EnterGroupTaskPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import MainTemplate from './templates/MainTemplate/MainTemplate';
+import DashboardHome from './pages/DashboardPage/DashboardHome';
 
 
 function App() {
@@ -48,6 +52,10 @@ function App() {
           ]
         },
         {
+          path:'log-in',
+          element:<LoginPage/>
+        },
+        {
           path:'create-board',
           element:<CreateNewBoardTemplate/>,
           children:[
@@ -74,6 +82,22 @@ function App() {
             {
               path:'group-task',
               element:<EnterGroupTaskPage/>
+            }
+          ]
+        },
+        {
+          path:'',
+          element:<MainTemplate/>,
+          children:[
+            {
+              path:'',
+              element:<DashboardPage/>,
+              children:[
+                {
+                  path:'',
+                  element:<DashboardHome/>
+                }
+              ]
             }
           ]
         }

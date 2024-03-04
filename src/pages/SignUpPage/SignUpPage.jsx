@@ -33,7 +33,7 @@ const SignUpPage = () => {
                         </div>
                         <div className="login-link mt-40">
                             <p className="content">
-                                Already have an account? <Link to={''}>Log In</Link>
+                                Already have an account? <Link to={'/log-in'}>Log In</Link>
                             </p>
                         </div>
                     </div>

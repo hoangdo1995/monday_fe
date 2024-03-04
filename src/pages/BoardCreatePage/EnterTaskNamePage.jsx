@@ -5,9 +5,6 @@ import InputText from "../../components/InputText";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import LogoComponent from "../../components/LogoComponent";
-import * as Yup from 'yup';
-import { history } from "../..";
-import LabelError from "../../components/LabelError";
 import { setTaskNameList } from "../../redux/reducer/newBoardReducer";
 import { getValueById } from "../../utils/util";
 
@@ -62,7 +59,7 @@ const EnterTaskNamePage = () => {
     </div>
     <div className="flex justify-between">
         <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i>Back</span>} linkRouter={'select-view-layout'}/>
-        <DirectionButtonDefault  linkRouter={'group-task'} title={<div className='flex items-center'><span className='font-light tracking-wide'>{(viewLayout==='table')?'Get started':<>Next <i className="fa fa-chevron-right text-xs ms-1"></i></>}</span></div>} active={true}/>
+        <DirectionButtonDefault  linkRouter={(viewLayout==='table')?`group-task`:'/'} title={<div className='flex items-center'><span className='font-light tracking-wide'>{(viewLayout!=='table')?'Get started':<>Next <i className="fa fa-chevron-right text-xs ms-1"></i></>}</span></div>} active={true}/>
     </div>
     <button className="hidden" type="submit"></button>
 </form>
