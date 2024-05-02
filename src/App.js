@@ -96,6 +96,16 @@ function App() {
                 {
                   path:'',
                   element:<DashboardHome/>
+                },
+                {
+                  path:'template_center/category',
+                  element:<DashboardHome/>,
+                  children:[
+                    {
+                      path:'all_template',
+                      element:<p>All template</p>
+                    }
+                  ]
                 }
               ]
             }

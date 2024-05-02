@@ -1,5 +1,133 @@
 .dashboard-home{
     .dashboard-home-header{
-      
+        background-image: url('../../images/svg_images/background_pattern.svg');
+        background-position: 40% center;
+        background-repeat: no-repeat;
     }
+    .dashboard-home-body{
+        .dashboard-home-body-container{
+            margin-bottom: 70px;
+            .dashboard-home-content{
+                background-color: var(--color-body-content-bg);
+                .ant-collapse{
+                    .ant-collapse-item{
+                        .ant-collapse-header{
+                            padding-left: 5px;
+                            color: var(--color-text-main);
+                            font-weight: 500;
+                            font-size: 17px;
+                        }
+                        .ant-collapse-content{
+                            border-radius: 10px;
+                            color: var(--color-text-main);
+                            font-size: 15px;
+                            .ant-collapse-content-box{
+                                padding: 0;
+                                .dashboard-content-item{
+                                    border: 1px solid var(--color-break-line);
+                                    border-radius: 10px;
+                                    .show-all-task-button{
+                                        border: 1px solid var(--color-border-gray-1);
+                                    }
+                                    //update feed
+                                    .inbox-feed-item{
+                                        .inbox-feed-item-content{
+                                            &:hover{
+                                                background-color: var(--color-menu-item-hover-background);
+                                            }
+                                        }
+                                        .invite-team-content{
+                                            background-color: var(--color-invite-team-content-bg);
+                                        }
+                                    }
+                                }
+                                .workspaces-items-container{
+                                    .workspaces-item{
+                                        width: 50%;
+                                        margin: 0px 10px;
+                                        padding: 20px 25px;
+                                        border: 1px solid var(--color-break-line);
+                                        border-radius: 10px;
+                                        cursor: pointer;
+                                        transition: all .3s;
+                                        color: var(--color-text-main);
+                                        &:hover{
+                                            @extend .box-shadow-item-main;
+                                            border-color: transparent;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .dashboard-home-info{
+                width: 360px;
+                .dashboard-home-info-item{
+                    background-color: var(--color-body-content-bg);
+                    border-radius: 10px;
+                    // profile step css
+                    .profile-step{
+                        cursor: pointer;
+                        font-size: 15px;
+                        margin: 5px 0;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                        .checkbox-box{
+                            display: inline-block;
+                            width: 15px;
+                            height: 15px;
+                            border: 1px solid var(--color-text-main);
+                            border-radius: 50%;
+                            margin-right: 8px;
+                            position: relative;
+                        }
+                        .checkbox-check{
+                            font-size: 11px;
+                            position: absolute;
+                            color: var(--color-body-content-bg);
+                            left: 2px;
+                        }
+                    }
+                    .profile-step input:checked~span{
+                        color: rgb(52, 181, 134);
+                        font-weight: 400;
+                        &:hover{
+                            text-decoration: underline rgb(52, 181, 134);
+                        }
+                    }
+                    .profile-step input:checked~span.checkbox-box{
+                        background-color: rgb(52, 181, 134);
+                        border-color: rgb(52, 181, 134);
+                    }
+                    //progress bar custom
+                    .ant-progress{
+                        .ant-progress-outer{
+                            .ant-progress-inner{
+                                border-radius: 10px !important;
+                                background-color: white;
+                                .ant-progress-bg{
+                                    padding: 10px;
+                                    background: hsla(348, 89%, 67%, 1);
+                                                background: linear-gradient(-90deg, hsla(348, 89%, 67%, 1) 0%, hsla(348, 89%, 67%, 1) 50%, hsla(350, 76%, 59%, 1) 50%, hsla(351, 73%, 57%, 1) 100%);
+                                                background: -moz-linear-gradient(-90deg, hsla(348, 89%, 67%, 1) 0%, hsla(348, 89%, 67%, 1) 50%, hsla(350, 76%, 59%, 1) 50%, hsla(351, 73%, 57%, 1) 100%);
+                                                background: -webkit-linear-gradient(-90deg, hsla(348, 89%, 67%, 1) 0%, hsla(348, 89%, 67%, 1) 50%, hsla(350, 76%, 59%, 1) 50%, hsla(351, 73%, 57%, 1) 100%);
+                                    // animation
+                                    animation: flicker;
+                                    animation-duration: .6s;
+                                    animation-timing-function: ease;
+                                    animation-fill-mode: backwards;
+                                    animation-iteration-count: 5;
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -26,7 +26,7 @@ const EnterBoardNamePage = () => {
         dispatch(action);
     }
   return <form className="w-full h-full flex flex-col justify-between" style={{maxHeight:700}} onSubmit={()=>history.push('select-column')}>
-    <div className="header">
+    <div className="">
               <LogoComponent/>
     </div>
     <div>

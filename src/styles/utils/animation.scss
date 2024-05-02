@@ -46,5 +46,24 @@
     
 }
 
+//flicker animation
+@keyframes flicker{
+    from{
+        filter: opacity(0);
+        opacity: 0;
+    }
+    to{
+        filter: opacity(1);
+        opacity: 1;
+    }
+}
+
+.flicker{
+    animation: flicker;
+
+}
+
+
+
 
 

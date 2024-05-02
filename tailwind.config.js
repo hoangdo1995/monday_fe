@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'dashboard-header-pattern': "url('/images/svg_images/background_pattern.svg')",
+        
       }
     },
   },

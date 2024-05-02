@@ -4,16 +4,18 @@ $color-blue-gray:#0360b9;
 $color-blue-gray-1:#0060b9;
 $color-blue-light:#0173ea;
 $color-gray-blue-1:#133774;
-$color-gray-blue-light-1:#7182a0;
+$color-dark-blue:#191b34;
+$color-gray-blue-light-1:#364a69;
 $color-blue-2:#1f76c2;
 $color-white:#ffffff;
 $color-white-1:#d5d8df;
 $color-white-gray:#dcdfec;
 $color-gray-1:#c3c6d4;
-$color-gray-2:#323338;
+$color-gray-2:#3c3d43;
 $color-gray-3:#878787;
 $color-gray-4:#57597d;
 $color-gray-5:#4b4e69;
+$color-gray-6:#33354b;
 $color-black-1:#323338;
 $color-gray-violet:#292f4c;
 $color-gray-violet-1:#30324e;
@@ -30,10 +32,11 @@ body{
     //border-color
     --color-border-gray-1:#{$color-gray-1};
     --color-break-line:#{$color-gray-4};
+    --color-input-text-hover:#{$color-white-gray};
     //---------------text color--------------
     --color-text-light:#{$color-white};
     --color-text-primary:#{$color-black-1};
-    --color-text-secondary:#{$color-gray-2};
+    --color-text-secondary:#{$color-gray-3};
     --color-text-link:#{$color-blue-2};
     // text theme color
     --color-text-main:#{$color-white-1};
@@ -48,11 +51,30 @@ body{
     --tooltip-text-color:#{$color-gray-3};
     // -----------body color---------------------
     --color-body-bg:#{$color-dark-violet};
+    --color-body-content-bg:#{$color-gray-violet-1};
+    //------dashboard content color---------------
+    --color-invite-team-content-bg:#{$color-gray-6};
    
     //-----------button color-------------------
     --color-btn-bg-light:#{$color-blue-light};
     --color-btn-bg-light-hover:#{$color-blue-gray-1};
     --color-btn-none-bg-hover-color:#{$color-gray-5};
+    // ---------radio-input------------------
+    --color-radio-main-bg:#{$color-gray-2};
+    --color-radio-main-border:#{$color-gray-4};
+    --color-radio-main-border-hover:#{$color-white};
+    --color-radio-main-border-checked:#{$color-blue-light};
+    //----------shadow color------------------
+    --color-box-shadow-main:#{$color-dark-violet};
+
+    //------------modal color--------------------
+    --color-modal-profile-step-bg:#{$color-dark-blue};
+    --color-modal-profile-step-shadow:rgba(10, 13, 32, 0.5);
+    --color-modal-button-ok-bg:#{$color-blue-light};
+    --color-input-border-hover:#{$color-white-1};
+    // ----------icon color ----------------------
+    --color-icon-main-template-bg:#{$color-gray-violet};
+    --color-icon-main-template-border:#{$color-dark-blue};
     }
 
 //font-weight

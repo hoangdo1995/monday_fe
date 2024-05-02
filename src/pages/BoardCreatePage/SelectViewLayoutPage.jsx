@@ -1,16 +1,14 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect } from "react";
 import LogoComponent from "../../components/LogoComponent";
 import DirectionButtonGray from "../../components/DirectionButtonGray";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
-import RenderColumnCreateBoard from "../../components/RenderColumnCreateBoard";
 import { useDispatch, useSelector } from "react-redux";
 import {setNewBoardViewLayout} from '../../redux/reducer/newBoardReducer';
-import { layoutViewList,columnTitleList,viewBgColor } from "../../utils/defaultValue";
+import { layoutViewList,viewBgColor } from "../../utils/defaultValue";
 import ItemSelect from "../../components/ItemSelect";
-import BreakDownArrow from "../../components/utilComponents/BreakDownArrow";
 
 const SelectViewLayoutPage = () => {
-    const {viewLayout,objectManager,name,listColumn} = useSelector((state)=>state.newBoardReducer);
+    const {viewLayout,objectManager} = useSelector((state)=>state.newBoardReducer);
     const dispatch = useDispatch();
     //mảng chưa các giá trị ngày cho render calender layout
     const daysArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,1,2,3,4,5,6,7,8,9,10,11];
@@ -42,7 +40,7 @@ const SelectViewLayoutPage = () => {
         }
     },[])
   return <div className="w-full h-full flex flex-col justify-between" style={{maxHeight:700}}>
-    <div className="header">
+    <div className="">
               <LogoComponent/>
     </div>
     <div>

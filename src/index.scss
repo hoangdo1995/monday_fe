@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 @import './styles/helps/help.scss';
+@import './styles/utils/customInput.scss';
+@import './styles/utils/customTailwind.scss';
 @import './styles/components/header.scss';
 @import './styles/pages/dashboard.scss';
 @import './styles/utils/animation.scss';
 @import './styles/utils/default.scss';
+@import './styles/components/integrateIcons/integrateIcons.scss';
+@import './styles/components/UtilComponent/utilComponents.scss';
 @import './styles/createBoardPage/createBoardPage.scss';
 
 body{

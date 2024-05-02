@@ -1,0 +1,17 @@
+// custom input radio main 
+.radio-input-main{
+    span{
+        background-color: var(--color-radio-main-bg);
+        border: 2px solid var(--color-radio-main-border);
+        transition: all .3s;
+    }
+    &:hover span{
+        border: 2px solid var(--color-radio-main-border-hover);
+    }
+
+    input:checked~span{
+        border: 3.5px solid var(--color-radio-main-border-checked);
+    }
+}
+
+//input item select in create table view

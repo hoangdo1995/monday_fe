@@ -23,7 +23,7 @@ const SelectObjectManagerPage = () => {
         if(defaultRadio)defaultRadio.checked = true;
     },[objectManager])
   return <div className="w-full h-full flex flex-col justify-between" style={{maxHeight:700}}>
-    <div className="header">
+    <div className="">
               <LogoComponent/>
     </div>
     <div>

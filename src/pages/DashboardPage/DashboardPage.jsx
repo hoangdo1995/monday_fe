@@ -58,7 +58,7 @@ const DashboardPage = () => {
 ]
     
   return <div className="dashboard w-full h-full flex relative">
-            <div className={`dashboard-navigate h-full me-3 rounded-e-lg ${navigateIsHover?'absolute shadow-2xl':'relative'}`} onMouseOver={()=>{!navigateOpen&&setNavigateIsHover(true)}} onMouseLeave={()=>{!navigateOpen&&setNavigateIsHover(false)}}>
+            <div className={`dashboard-navigate h-full me-3 rounded-e-lg z-10 ${navigateIsHover?'absolute shadow-2xl':'relative'}`} onMouseOver={()=>{!navigateOpen&&setNavigateIsHover(true)}} onMouseLeave={()=>{!navigateOpen&&setNavigateIsHover(false)}}>
                 {navigateOpen||navigateIsHover?<div className={`dashboard-navigate-content`}>
                     <div className={`break-line-bottom ps-3 pe-12 pb-4 pt-3`}>
                         <div className="navigate-item active flex items-center">

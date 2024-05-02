@@ -1,0 +1,184 @@
+//tooltip antd custom
+.ant-tooltip{
+    .ant-tooltip-arrow::before{
+        background-color: var(--tooltip-bg-color);
+    }
+    .ant-tooltip-content{
+        width: fit-content;
+        .ant-tooltip-inner{
+            padding: 5px 15px;
+            background-color: var(--tooltip-bg-color);
+            color: var(--tooltip-text-color);
+        }
+    }
+}
+
+//modal
+.ant-modal-root{
+    .ant-modal-mask{
+        background-color: rgba(41, 47, 76, 0.7);
+    }
+}
+//modal profile-step
+.ant-modal-wrap.profile-step-modal{
+    .ant-modal{
+        width: fit-content !important;
+        .ant-modal-content{
+            // width: fit-content !important;
+            min-width: 550px;
+            background-color: transparent;
+            padding: 0;
+            .ant-modal-close{
+                position: absolute;
+                top: -15px;
+                right: -10px;
+            }
+            .ant-modal-body{
+                background-color: var(--color-modal-profile-step-bg);
+                box-shadow: 0 10px 35px -3px var(--color-modal-profile-step-shadow);
+                color: var(--color-text-main);
+                span.gray-text{
+                    color:var(--color-text-secondary);
+                }
+                //custom input style
+                input{
+                    border-color: $color-gray-3;
+                    &:focus{
+                        border-color: $color-blue-light !important;
+                    }
+                    &:hover{
+                        border-color: var(--color-input-border-hover);
+                    }
+                }
+            }
+        }
+    }
+}
+//image crop modal
+.ant-modal-wrap.img-crop-modal{
+    .ant-modal{
+        .ant-modal-content{
+            box-shadow: 0px 5px 25px 0px var(--color-modal-profile-step-shadow);
+            background-color: var(--color-modal-profile-step-bg);
+            button.ant-modal-close{
+                color: var(--color-text-main) !important;
+                transform: translateX(10px) translateY(-10px);
+            }
+            .ant-modal-header{
+                background-color: var(--color-modal-profile-step-bg);
+                .ant-modal-title{
+                    color: var(--color-text-main) !important;
+                }
+            }
+            .ant-modal-body{
+                    color: var(--color-text-main) !important;
+                    .ant-slider-track{
+                        background-color: rgb(121, 235, 235);
+                        z-index: 2;
+                    }
+                    .ant-slider-step{
+                        background-color: var(--color-text-main) !important;
+                    }
+                    .ant-slider-handle{
+                        z-index: 3;
+                    }
+            }
+            .ant-modal-footer{
+                button.ant-btn-default{
+                    background-color: transparent;
+                    color: var(--color-text-main);
+                    &:hover{
+                        color: var(--color-modal-button-ok-bg);
+                    }
+                }
+                button.ant-btn-primary{
+                    background-color: var(--color-modal-button-ok-bg);
+                    &:hover{
+                        filter: brightness(.8);
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+// custom template center modal
+.ant-modal-wrap.template_center_modal{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    .ant-modal{
+        display: block;
+        min-width: 95%;
+        height: 95%;
+        margin-top: 2%;
+        background-color: var(--color-modal-profile-step-bg);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 0px 5px 25px 0px var(--color-modal-profile-step-shadow);
+        .ant-modal-content{
+            padding: 0;
+            display: block;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            .ant-modal-close{
+                color: var(--color-text-main);
+
+            }
+            .ant-modal-body{
+                background-color: var(--color-modal-profile-step-bg);
+                height: 100%;
+                width: 100%;
+                border-top-left-radius: 19px;
+                border-top-right-radius: 19px;
+                color:var(--color-text-main);
+                // header
+                // custom input text
+                .template-header{
+                    padding: 15px 25px;
+                    border-bottom: 1px solid var(--color-break-line);
+                    .input-search-template{
+                        input{
+                            backdrop-filter: brightness(135%);
+                            &:hover{
+                                border-color: var(--color-input-text-hover) !important;
+                            }
+                        }
+                    }
+                }
+                .template-body-content{
+                    .template-center-link-container{
+                        overflow-y: scroll;
+                        .template_group_container{
+                            padding: 20px 0 ;
+                            border-bottom: 1px solid var(--color-break-line);
+                        }
+                        .template_link_item{
+                            display: block;
+                            width: 100%;
+                            padding: 5px 5px;
+                            margin: 2px 0;
+                            border-radius: 4px;
+                            background-color: transparent;
+                            color:var(--color-text-main);
+                            &:hover{
+                                color: var(--color-text-main);
+                                background-color: var(--color-menu-item-hover-background);
+                            }
+                        }
+                        .template_link_item.active{
+                            background-color: var(--color-theme-active-background);
+                        }
+                    }
+                    
+                }
+
+            }
+        }
+    }
+}
+
+
+

@@ -42,7 +42,7 @@ const EnterTaskNamePage = () => {
     },[taskNameList])
 
   return <form className="w-full h-full flex flex-col justify-between" style={{maxHeight:700}} onSubmit={formik.handleSubmit} >
-    <div className="header">
+    <div className="">
               <LogoComponent/>
     </div>
     <div className="w-full mt-10" onSubmit={formik.handleSubmit} >
