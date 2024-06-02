@@ -147,7 +147,7 @@ const items  = [
                     onOk={() => setTemplateCenterModalOpen(false)}
                     onCancel={() => {setTemplateCenterModalOpen(false);history.push('/')}}
                     confirmLoading={true}>
-                        <TemplateCenterModal/>
+                        <TemplateCenterModal handleOkChange={setTemplateCenterModalOpen}/>
 
             </Modal>
         </div>

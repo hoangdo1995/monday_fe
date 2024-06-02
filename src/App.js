@@ -17,6 +17,8 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import MainTemplate from './templates/MainTemplate/MainTemplate';
 import DashboardHome from './pages/DashboardPage/DashboardHome';
+import DashboardManagementPage from './pages/DashboardPage/DashboardManagermentPage';
+import TableViewComponent from './pages/ProjectManagementComponents/Views/TableViewComponent';
 
 
 function App() {
@@ -98,12 +100,16 @@ function App() {
                   element:<DashboardHome/>
                 },
                 {
-                  path:'template_center/category',
+                  path:'template_center/category/:filter?',
                   element:<DashboardHome/>,
+                },
+                {
+                  path:'/board/:projectId?',
+                  element: <DashboardManagementPage/>,
                   children:[
                     {
-                      path:'all_template',
-                      element:<p>All template</p>
+                      path:'',
+                      element:<TableViewComponent/>
                     }
                   ]
                 }

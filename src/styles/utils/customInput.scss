@@ -14,4 +14,38 @@
     }
 }
 
+.adaptiveInput{
+    input{
+        display: none;
+        background-color: transparent;
+        outline: none;
+        &::placeholder{
+            opacity: .5;
+            font-size: 14px;
+        }
+        &:focus{
+            cursor: text;
+        }
+    }
+    .filter{
+        display: none;
+    }
+}
+.adaptiveInput.active{
+    border:1px solid var(--color-border-input-hover);
+    .title{
+        display: none;
+    }
+    input{
+        display: block;
+        
+    }
+    .filter{
+        display: block;
+    }
+    &:hover{
+        background-color: transparent;
+    }
+}
+
 //input item select in create table view

@@ -2,12 +2,21 @@ import React from "react";
 import MaintemplateIcon from "../IntegrateIcons/MaintemplateIcon";
 import { DownloadOutlined } from "@ant-design/icons";
 import IntegrateIcon from "../IntegrateIcons/IntegrateIcon";
+import { useDispatch } from "react-redux";
+import { setTemplateModalCurrentSelect } from "../../redux/reducer/TemplateModalReducer";
 
 const TemplateCardComponent = (props) => {
   const {templateInformation,onClickHandle} = props;
   const {listIntegrate,name,desc,panelImage,downloadCount,author,shortDesc} = templateInformation;
+//   xử lý thay đổi đối tượng template đã chọn
+  const dispatch = useDispatch();
+  const changeCurrentTemplate = (template) =>{
+    const actionChangeTemplate = setTemplateModalCurrentSelect(template);
+    dispatch(actionChangeTemplate);
+    
+  }
   return (
-    <div className="template-card-item max-w-80 h-fit backdrop-brightness-150 rounded-xl border border-gray-600 hover:border-transparent cursor-pointer box-shadow-item-main-hover" onClick={()=>onClickHandle()}>
+    <div className="template-card-item max-w-80 h-fit backdrop-brightness-150 rounded-xl border border-gray-600 hover:border-transparent cursor-pointer box-shadow-item-main-hover" onClick={()=>{changeCurrentTemplate(templateInformation);onClickHandle()}}>
         <div className="px-4 py-4">
         <div className="relative">
             <img className="rounded-sm" src={panelImage} alt="" />

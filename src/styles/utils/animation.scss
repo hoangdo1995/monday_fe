@@ -4,7 +4,6 @@
 }
 
 
-
 //grow in animation
 @keyframes grow-in{
     0% {width: 0%;}
@@ -62,6 +61,56 @@
     animation: flicker;
 
 }
+
+// outline circle rotate animation
+.spinner-with-shadow{
+    z-index: 1;
+    position: relative;
+    box-shadow: 0px 0px 0px 5px var(--color-box-shadow-circle);
+    animation: shadow-bounce;
+    animation-duration: .8s;
+    &::before{
+        content: '';
+        display: block;
+        width: 116%;
+        height: 116%;
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-left-color: transparent;
+        z-index: -1;
+        animation: rotate-180-deg;
+        animation-duration: .8s;
+        animation-fill-mode: backwards;
+    }
+}
+
+
+@keyframes shadow-bounce{
+    from{
+        box-shadow: 0px 0px 0px 5px var(--color-box-shadow-circle);
+    }
+    to{
+        box-shadow: 0px 0px 0px 3px var(--color-box-shadow-circle);
+    }
+}
+
+@keyframes rotate-180-deg{
+    from{
+        transform: rotate(0);
+        border-left-color: var(--color-text-dropdown-main);
+    }
+    to{
+        transform: rotate(300deg);
+        border-left-color: var(--color-text-dropdown-main);
+    }
+}
+
+.outline-circle-spin-animation{
+    animation: outline-circle-spin;
+    animation-duration: 1s;
+}
+
 
 
 

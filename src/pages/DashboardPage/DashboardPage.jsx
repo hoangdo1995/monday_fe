@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import HeaderComponent from "../../components/HeaderComponent/HeaderComponent";
-import { Dropdown, Tooltip } from "antd";
+import { Dropdown, Modal, Tooltip } from "antd";
 import AddWorkSpaceDropdown from "../../components/DropdownComponents/AddWorkSpaceDropdown";
 import FilterDropdown from "../../components/DropdownComponents/FilterDropdown";
 import { Outlet } from "react-router-dom";
+import TemplateCenterModal from "../../components/DashboardComponent/TemplateCenterModal";
+import { history } from "../..";
 
 const DashboardPage = () => {
 
     const [workspaceDropdownOpen, setWorkspaceDropdownOpen] = useState(false);
     const [navigateOpen, setNavigateOpen] = useState(true);
     const [navigateIsHover,setNavigateIsHover] = useState(false);
+
+    
+    //Modal controller
+    const [templateCenterModalOpen,setTemplateCenterModalOpen] = useState(false);
 
     //state quản lý trạng thái của filter search
     const [filterList, setFilterList] = useState([]);
@@ -61,7 +67,7 @@ const DashboardPage = () => {
             <div className={`dashboard-navigate h-full me-3 rounded-e-lg z-10 ${navigateIsHover?'absolute shadow-2xl':'relative'}`} onMouseOver={()=>{!navigateOpen&&setNavigateIsHover(true)}} onMouseLeave={()=>{!navigateOpen&&setNavigateIsHover(false)}}>
                 {navigateOpen||navigateIsHover?<div className={`dashboard-navigate-content`}>
                     <div className={`break-line-bottom ps-3 pe-12 pb-4 pt-3`}>
-                        <div className="navigate-item active flex items-center">
+                        <div className="navigate-item active flex items-center" onClick={()=>history.push('/')}>
                             <i className="fa fa-home me-3"></i> Home
                         </div>
                         <div className="navigate-item flex items-center whitespace-nowrap">
@@ -107,7 +113,7 @@ const DashboardPage = () => {
                                 This workspace is empty.<br/> Get started by adding boards, docs, forms or dashboards.
                             </div>
                             <div className="pt-5">
-                                <button className="button-main w-8/12" style={{fontSize:14}}>Add from templates</button>
+                                <button className="button-main w-8/12" style={{fontSize:14}} onClick={()=>{setTemplateCenterModalOpen(true);history.push('/template_center/category')}}>Add from templates</button>
                             </div>
                             <div className="py-3">
                                 <button className="button-none-bg w-8/12" style={{fontSize:14}}>Start from scratch</button>
@@ -124,6 +130,17 @@ const DashboardPage = () => {
             <div className="dashboard-content w-full h-full rounded-s-lg">
                 <Outlet/>
             </div>
+            {/* template center modal */}
+            <Modal  wrapClassName="template_center_modal"
+                    footer={null}
+                    centered
+                    open={templateCenterModalOpen}
+                    onOk={() => setTemplateCenterModalOpen(false)}
+                    onCancel={() => {setTemplateCenterModalOpen(false);history.push('/')}}
+                    confirmLoading={true}>
+                        <TemplateCenterModal handleOkChange={setTemplateCenterModalOpen}/>
+
+            </Modal>
         </div>;
 };
 

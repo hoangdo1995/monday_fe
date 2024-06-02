@@ -5,10 +5,82 @@ import { setActiveBySelector } from "../../utils/util";
 import TemplateCardComponent from "./TemplateCardComponent";
 import { templateObject } from "../../utils/templateValueObject";
 import IntegrateIcon from "../IntegrateIcons/IntegrateIcon";
-import { ArrowLeftOutlined, DownloadOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, DownOutlined, DownloadOutlined, SearchOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import ReviewGellary from "../../utils/ComponentUtils/ReviewGellary";
+import { Dropdown } from "antd";
+import { postCurrentProjectManagement, setCurrentProject } from "../../redux/reducer/ProjectManagementReducer";
+import { history } from "../..";
 
-const TemplateCenterModal = () => {
+const TemplateCenterModal = (props) => {
+  const {handleOkChange} = props;
+  const dispatch = useDispatch();
   const [showDetail,setShowDetail] = useState(false);
+  const templateCurrent = useSelector((state)=>state.templateModalReducer.templateCurrentSelect);
+  // dropdown for button choose template
+  const [templateChooseDropdown,setTemplateChooseDropdown] = useState(false);
+  const handleOpenChange = (nextOpen, info) =>{
+    if (info.source === 'trigger' || nextOpen) {
+      setTemplateChooseDropdown(nextOpen);
+  }
+  }
+  const items = [
+    {
+      key: '1',
+      label: (
+        <div className="dropdown-content w-full mx-0">
+            <div>Use template in</div>
+            <div className="my-3 relative">
+                <input className="w-full " placeholder="Search workspace"/>
+                <button className="absolute right-2 bottom-1 hover:backdrop-brightness-150 px-1 rounded-md"><SearchOutlined /></button>
+            </div>
+            <div className="break-line-bottom pb-5">
+              <div className="mb-2">Work management</div>
+              <div className="ps-2">
+                <div className="workspace-item  active" onClick={(event)=>setActiveBySelector('.workspace-item',event)}>
+                  <div className="flex">
+                    <div className="rounded-md px-1 bg-green-500 me-1 w-5 text-center">M</div>
+                    <div>Main workspace</div>
+                  </div>
+                  <div>(this workspace)</div>
+                </div>
+                <div className="workspace-item" onClick={(event)=>setActiveBySelector('.workspace-item',event)}>
+                  <div className="flex">
+                    <div className="rounded-md px-1 bg-blue-500 me-1  w-5 text-center">N</div>
+                    <div>New workspace</div>
+                  </div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+            <div className="text-center pt-3">
+              <button className="py-3 button-none-bg w-full">+ New workspace</button>
+            </div>
+        </div>
+      ),
+    },
+  ];
+  // hàm set reducer cho template được chọn hiện tại
+  const setCurrentProjectHandle = (currentProject)=>{
+      const action = postCurrentProjectManagement(currentProject);
+      dispatch(action);
+      
+      
+      // xử lý hoạt cảnh waiting load template
+      // 
+      // lấy dử liệu về từ redux
+      // chuyển về trang quản lý project
+      history.push(`/board`);
+      // xử lý close modal
+      handleOkChange(false);
+  }
+
+
+  const handleMenuClick = (event)=>{
+    if(event.key !== '1'){
+      setTemplateChooseDropdown(false);
+    }
+  }
   useEffect(()=>{
       const listTemplateLink  = document.querySelectorAll('.template_link_item');
       listTemplateLink.forEach(element=>{
@@ -87,54 +159,48 @@ const TemplateCenterModal = () => {
                     <div className="flex py-5 gap-10 flex-wrap mb-40">
                       {/* card item templates */}
                       {/* demo bằng dử liệu thô tự nhập bằng tay trước sau này sẽ chuyển về cơ sở dử liệu lưu trữ */}
-                      {templateObject.map((template)=><TemplateCardComponent onClickHandle={()=>setShowDetail(true)} templateInformation={template} />)}
+                      {templateObject.map((template)=><TemplateCardComponent onClickHandle={()=>{setShowDetail(true)}} templateInformation={template} />)}
                     </div>
                   </div>:
+                  // show template detail page
                   <div className="px-8 py-8 h-full overflow-scroll custom-scrollbar">
                       <div>
                         <button className="button-none-bg text-sm" onClick={()=>setShowDetail(false)}><ArrowLeftOutlined className="me-2" />Back</button>
                       </div>
-                      <div className="flex">
-                          <div>
+                      <div className="flex justify-between">
+                          <div className="pe-16">
                               <div className="flex items-center mt-10 mb-5">
-                                <h4 className="pe-3 text-2xl leading-6 height border-e">Basic project management</h4>
+                                <h4 className="pe-3 text-2xl leading-6 height border-e">{templateCurrent.name}</h4>
                                 <div>
-                                  <span className="ps-3"><DownloadOutlined className="me-1" />54.5k</span>
+                                  <span className="ps-3"><DownloadOutlined className="me-1" />{templateCurrent.downloadCount}</span>
                                   <span className="text-xs ms-1 font-light">users</span>
                                 </div>
                               </div>
                               <div>
-                                Keep track of all tasks required for your project & make sure nothing falls through the cracks
+                                {templateCurrent.desc}
                               </div>
                               <div className="flex items-center mt-4">
                                 <div className="me-4 text-lg">integrates with</div>
-                                <div>
-                                  {['slack','jira','drive','gmail'].map(item=><IntegrateIcon name={item} size={'large'}/>)}
+                                <div className="opacity-45">
+                                  {templateCurrent.listIntegrate.map(item=><IntegrateIcon name={item} size={'large'}/>)}
                                 </div>
                               </div>
+                              
+                          </div>
+                          <div className="me-20">
                               <div>
-                                <div className="flex gap-2" style={{width:900,height:380}}>
-                                  <div className="w-9/12 h-full">
-                                    <img className="object-fill w-full h-full" src="https://dapulse-res.cloudinary.com/image/upload/v1678786651/template_center/project_management/basic_project_management/thumbnail/project_plan_thumb.png" alt="" />
-                                  </div>
-                                  <div className="w-3/12 h-full overflow-y-scroll custom-scrollbar">
-                                    <div className="w-full px-1 py-2 rounded-sm">
-                                      <img className="rounded-lg" src="https://dapulse-res.cloudinary.com/image/upload/v1678786651/template_center/project_management/basic_project_management/thumbnail/project_plan_thumb.png" alt="" />
-                                    </div>
-                                    <div className="w-full px-1 py-2 rounded-sm">
-                                      <img className="rounded-lg" src="https://dapulse-res.cloudinary.com/image/upload/v1678786651/template_center/project_management/basic_project_management/thumbnail/project_plan_thumb.png" alt="" />
-                                    </div>
-                                    <div className="w-full px-1 py-2 rounded-sm">
-                                      <img className="rounded-lg" src="https://dapulse-res.cloudinary.com/image/upload/v1678786651/template_center/project_management/basic_project_management/thumbnail/project_plan_thumb.png" alt="" />
-                                    </div>
-                                    <div className="w-full px-1 py-2 rounded-sm">
-                                      <img className="rounded-lg" src="https://dapulse-res.cloudinary.com/image/upload/v1678786651/template_center/project_management/basic_project_management/thumbnail/project_plan_thumb.png" alt="" />
-                                    </div>
-                                  </div>
+                                <div className="flex">
+                                  <div className="px-4 py-2 text-base bg-blue-700 hover:bg-blue-800 cursor-pointer rounded-l-md min-w-36" key="ok" type="primary"  onClick={()=>{setCurrentProjectHandle({type:templateCurrent.name.replaceAll(' ','_')})}}>Use template</div>
+                                  <Dropdown menu={{items,onClick:handleMenuClick}} placement="bottomRight" trigger={'click'} overlayClassName="main-dropdown" open={templateChooseDropdown} onOpenChange={handleOpenChange} autoFocus={true}>
+                                    <div className="px-3 py-2 bg-blue-700 hover:bg-blue-800 cursor-pointer rounded-r-md" style={{marginLeft:1}}><DownOutlined /></div>
+                                  </Dropdown>
                                 </div>
+                                <div></div>
                               </div>
                           </div>
-                          <div></div>
+                      </div>
+                      <div className="mt-10">
+                        <ReviewGellary listImages={templateCurrent.images} defaultImage={templateCurrent.panelImage}/>
                       </div>
                   </div>}
               </div>

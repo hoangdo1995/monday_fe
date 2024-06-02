@@ -6,6 +6,7 @@ $color-blue-light:#0173ea;
 $color-gray-blue-1:#133774;
 $color-dark-blue:#191b34;
 $color-gray-blue-light-1:#364a69;
+$color-gray-blue-light-2:#29364a;
 $color-blue-2:#1f76c2;
 $color-white:#ffffff;
 $color-white-1:#d5d8df;
@@ -19,6 +20,8 @@ $color-gray-6:#33354b;
 $color-black-1:#323338;
 $color-gray-violet:#292f4c;
 $color-gray-violet-1:#30324e;
+$color-gray-violet-2:#32354b;
+$color-gray-violet-light:#41425b;
 $color-dark-violet:#1d1f3b;
 
 
@@ -31,6 +34,9 @@ body{
     --color-button-white-hover:#{$color-white-gray};
     //border-color
     --color-border-gray-1:#{$color-gray-1};
+    --color-border-gray-2:#{$color-gray-3};
+    --color-border-input-gray:#{$color-gray-3};
+    --color-border-input-hover:#{$color-blue-light};
     --color-break-line:#{$color-gray-4};
     --color-input-text-hover:#{$color-white-gray};
     //---------------text color--------------
@@ -38,6 +44,7 @@ body{
     --color-text-primary:#{$color-black-1};
     --color-text-secondary:#{$color-gray-3};
     --color-text-link:#{$color-blue-2};
+    --color-text-dropdown-main:#{$color-white-1};
     // text theme color
     --color-text-main:#{$color-white-1};
 
@@ -46,6 +53,7 @@ body{
     --color-background-dropdown:#{$color-gray-violet-1};
     --color-theme-active-background:#{$color-gray-blue-1};
     --color-menu-item-hover-background:#{$color-gray-blue-light-1};
+    --color-menu-item-hover-background-dark:#{$color-gray-blue-light-2};
     --header-text-color:#{$color-white};
     --tooltip-bg-color:#{$color-white};
     --tooltip-text-color:#{$color-gray-3};
@@ -59,6 +67,8 @@ body{
     --color-btn-bg-light:#{$color-blue-light};
     --color-btn-bg-light-hover:#{$color-blue-gray-1};
     --color-btn-none-bg-hover-color:#{$color-gray-5};
+    --color-btn-filter-choice:#{$color-gray-violet-2};
+    --color-btn-filter-choice-hover:#{$color-gray-violet-light};
     // ---------radio-input------------------
     --color-radio-main-bg:#{$color-gray-2};
     --color-radio-main-border:#{$color-gray-4};
@@ -66,6 +76,7 @@ body{
     --color-radio-main-border-checked:#{$color-blue-light};
     //----------shadow color------------------
     --color-box-shadow-main:#{$color-dark-violet};
+    --color-box-shadow-circle:#{$color-gray-3};
 
     //------------modal color--------------------
     --color-modal-profile-step-bg:#{$color-dark-blue};
@@ -76,6 +87,7 @@ body{
     --color-icon-main-template-bg:#{$color-gray-violet};
     --color-icon-main-template-border:#{$color-dark-blue};
     }
+    // 
 
 //font-weight
 

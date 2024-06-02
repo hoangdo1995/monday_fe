@@ -24,7 +24,13 @@ const templateObject = [
         shortDesc:'Plan and manage your project from A to Z',
         desc:'Keep track of all tasks required for your project & make sure nothing falls through the cracks',
         panelImage:'https://dapulse-res.cloudinary.com/image/upload/v1678786651/template_center/project_management/basic_project_management/thumbnail/project_plan_thumb.png',
-        downloadCount:'59.5K'
+        downloadCount:'59.5K',
+        images:[
+            "https://dapulse-res.cloudinary.com/image/upload/v1678786651/template_center/project_management/basic_project_management/thumbnail/project_plan_thumb.png",
+            "https://dapulse-res.cloudinary.com/image/upload/v1678786667/template_center/project_management/basic_project_management/screenshots/project_report.png",
+            "https://dapulse-res.cloudinary.com/image/upload/v1678786666/template_center/project_management/basic_project_management/screenshots/project_gantt.png",
+            "https://dapulse-res.cloudinary.com/image/upload/v1678786665/template_center/project_management/basic_project_management/screenshots/project_doc.png"
+        ]
     },
     {
         name:'IT service desk',
