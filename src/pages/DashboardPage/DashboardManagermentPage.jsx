@@ -26,9 +26,9 @@ const DashboardManagementPage = () => {
       }
   },[status])
   return (
-  <div>
-      <div className="">
-        <div className="px-8 py-5">
+  <div className="h-full">
+      <div className="h-full">
+        <div className="h-full flex flex-col px-8 py-5">
             {/* header management */}
             <div className={`${showHeader?'flex':'hidden'} justify-between mb-2`}>
               <div className="">
@@ -104,7 +104,8 @@ const DashboardManagementPage = () => {
               </div>
               
             </div>
-            <div>
+            {/* content page */}
+            <div className="h-full flex-grow">
               <Outlet/>
             </div>
         </div>

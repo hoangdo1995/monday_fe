@@ -22,6 +22,10 @@
     color:var(--color-text-dropdown-main)
 }
 
+.color-text-main{
+    color:var(--color-text-main);
+}
+
 
 
 
@@ -366,4 +370,30 @@
 /* Style the scrollbar track (background) */
 .custom-scrollbar-transparent::-webkit-scrollbar-track {
     background-color: transparent;
+}
+
+// custom scrollbar clear
+/* Style the entire scrollbar */
+.clear-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Style the scrollbar thumb (draggable handle) */
+.clear-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    // border-radius: 5px;
+}
+
+/* Style the scrollbar track (background) */
+.clear-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+// sticky-left item
+.sticky-left{
+    position: sticky !important;
+    left: 0;
+    top: 0;
+    z-index: 5;
 }

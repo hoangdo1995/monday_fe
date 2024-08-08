@@ -41,3 +41,8 @@ export const setActiveBySelector =(selector,event)=>{
         });
         event.currentTarget.classList.add('active');
 }
+
+export function roundToDecimalPlace(number, decimalPlaces) {
+    let factor = Math.pow(10, decimalPlaces);
+    return Math.round(number * factor) / factor;
+  }

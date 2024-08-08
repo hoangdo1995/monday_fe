@@ -18,7 +18,7 @@ import DashboardPage from './pages/DashboardPage/DashboardPage';
 import MainTemplate from './templates/MainTemplate/MainTemplate';
 import DashboardHome from './pages/DashboardPage/DashboardHome';
 import DashboardManagementPage from './pages/DashboardPage/DashboardManagermentPage';
-import TableViewComponent from './pages/ProjectManagementComponents/Views/TableViewComponent';
+import TableViewComponent from './pages/ProjectManagementComponents/Views/TableView/TableViewComponent';
 
 
 function App() {

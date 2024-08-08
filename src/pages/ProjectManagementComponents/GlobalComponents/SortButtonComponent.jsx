@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import SortConditionItem from "./SortConditionItem";
 import { DndContext } from "@dnd-kit/core";
 import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { handleDragEndSortable } from "../../../utils/DndCustom/DndCustom";
 
 const SortButtonComponent = () => {
     const [conditionSort,setConditionSort] = useState([]);
@@ -21,8 +22,6 @@ const SortButtonComponent = () => {
         }
     };
     const addConditionSort = (sortField, arrangement)=>{
-        
-        
         setConditionSort([...conditionSort,{id:conditionSort.length>0?conditionSort[conditionSort.length-1].id+1:1,sortField:sortField,arrangement:arrangement}]);
     }
     // các hàm quản lý xự thay đổi của sort condition
@@ -51,32 +50,17 @@ const SortButtonComponent = () => {
         
     }
 
-    const handleDragEnd =(event)=>{
-        const { active, over } = event;
-
-        if(over?.id){
-            if (active.id !== over.id) {
-                setConditionSort((items) => {
-                    const oldIndex = items.findIndex((item) => item.id === active.id);
-                    const newIndex = items.findIndex((item) => item.id === over.id);
-        
-                    return arrayMove(items, oldIndex, newIndex);
-            });
-        }
-    }
-    }
-    // -------------------------------------------------//
     const items = [
         {
             key:"1",
             label:(
-            <div className="text-dropdown-main">
+            <div className="text-dropdown-main" style={{minWidth:425}}>
                 <div className="px-6 pt-4">
                     <div className="flex items-center justify-between mb-7">
                         <span>Sort this board by column</span>
                         <button className="button-none-bg border ms-5">Save as new view</button>
                     </div>
-                    <DndContext onDragEnd={handleDragEnd}>
+                    <DndContext onDragEnd={(event)=>handleDragEndSortable(event,setConditionSort)}>
                         <SortableContext items={conditionSort} strategy={verticalListSortingStrategy}>
                             {(conditionSort.length!==0)?
                                 conditionSort.map(condition=>(

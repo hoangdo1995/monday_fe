@@ -77,6 +77,7 @@ body{
     //----------shadow color------------------
     --color-box-shadow-main:#{$color-dark-violet};
     --color-box-shadow-circle:#{$color-gray-3};
+    --color-table-shadow:#{$color-gray-1};
 
     //------------modal color--------------------
     --color-modal-profile-step-bg:#{$color-dark-blue};
@@ -86,8 +87,10 @@ body{
     // ----------icon color ----------------------
     --color-icon-main-template-bg:#{$color-gray-violet};
     --color-icon-main-template-border:#{$color-dark-blue};
+    // table
+    --color-table-bg-main:#{$color-gray-violet-1};
+    --color-row-hover-bg:#{$color-gray-6};
     }
-    // 
 
 //font-weight
 

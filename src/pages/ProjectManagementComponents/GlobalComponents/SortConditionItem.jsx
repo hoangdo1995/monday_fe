@@ -18,8 +18,6 @@ const SortConditionItem = (props) => {
         setNodeRef,
         transform,
         transition,
-        isDragging,
-        over
       } = useSortable({id: props.condition.id});
       
       const style = {

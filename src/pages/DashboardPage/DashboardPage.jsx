@@ -64,14 +64,14 @@ const DashboardPage = () => {
 ]
     
   return <div className="dashboard w-full h-full flex relative">
-            <div className={`dashboard-navigate h-full me-3 rounded-e-lg z-10 ${navigateIsHover?'absolute shadow-2xl':'relative'}`} onMouseOver={()=>{!navigateOpen&&setNavigateIsHover(true)}} onMouseLeave={()=>{!navigateOpen&&setNavigateIsHover(false)}}>
+            <div className={`dashboard-navigate ${navigateOpen?'w-2/12':'w-fit'} h-full me-3 rounded-e-lg z-10 ${navigateIsHover?'absolute shadow-2xl':'relative'}`} onMouseOver={()=>{!navigateOpen&&setNavigateIsHover(true)}} onMouseLeave={()=>{!navigateOpen&&setNavigateIsHover(false)}}>
                 {navigateOpen||navigateIsHover?<div className={`dashboard-navigate-content`}>
                     <div className={`break-line-bottom ps-3 pe-12 pb-4 pt-3`}>
                         <div className="navigate-item active flex items-center" onClick={()=>history.push('/')}>
                             <i className="fa fa-home me-3"></i> Home
                         </div>
                         <div className="navigate-item flex items-center whitespace-nowrap">
-                            <i class="fa fa-calendar-check me-3"></i> My work
+                            <i className="fa fa-calendar-check me-3"></i> My work
                         </div>
                     </div>
                     <div className="ps-3 pe-3">
@@ -88,7 +88,7 @@ const DashboardPage = () => {
                                 <div className="workspace-search-bar flex items-center relative">
                                     <input className="ms-2 rounded outline-none bg-transparent focus:border-sky-600 border border-slate-500 ps-8 pe-10 py-1 w-full" type="text" placeholder="Search"/>
                                     <FilterDropdown filterList={filterList} setFilterList={setFilterList}/>
-                                    <div className="absolute left-4"><i class="fab fa-sistrix"></i></div>
+                                    <div className="absolute left-4"><i className="fab fa-sistrix"></i></div>
                                 </div>
                                 <AddWorkSpaceDropdown/>
                         </div>
@@ -127,7 +127,7 @@ const DashboardPage = () => {
                     </div>
                 </Tooltip>
             </div>
-            <div className="dashboard-content w-full h-full rounded-s-lg">
+            <div className={`dashboard-content ${navigateOpen?'w-10/12':'w-full'} h-full rounded-s-lg`}>
                 <Outlet/>
             </div>
             {/* template center modal */}

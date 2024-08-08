@@ -4,10 +4,12 @@ import { Outlet } from "react-router-dom";
 
 const MainTemplate = () => {
   return <div className="h-screen flex flex-col overflow-hidden">
-        <HeaderComponent/>
-        <div className="h-full">
-            <Outlet/>
-        </div>
+          <div className="">
+            <HeaderComponent/>  
+          </div>
+          <div className="h-full">
+              <Outlet/>
+          </div>
   </div>;
 };
 
