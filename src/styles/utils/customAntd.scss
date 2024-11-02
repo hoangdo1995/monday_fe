@@ -279,5 +279,45 @@
     }
 }
 
+// picker custom
+
+.ant-picker-dropdown.ant-picker-custom{
+    box-shadow: 0px 0px 30px -5px rgba(0,0,0,.6);
+    .ant-picker-panel-container{
+        background-color: var(--color-background-dropdown);
+        .ant-picker-panel-layout{
+            .ant-picker-date-panel{
+                .ant-picker-header{
+                    color: var(--color-text-main);
+                    button{
+                        span{
+                            color: var(--color-text-main);
+                        }
+                    }
+                }
+                .ant-picker-body{
+                    .ant-picker-content{
+                        tr{
+                            th{
+                                color: var(--color-text-main);
+                                opacity: 0.5 ;
+                            }
+                        }
+                        tr{
+                            td{
+                                color:var(--color-text-main);
+                            }
+                        }
+                    }
+                }
+            }
+            .ant-picker-footer{
+                color: var(--color-text-main);
+
+            }
+        }
+    }
+}
+
 
 

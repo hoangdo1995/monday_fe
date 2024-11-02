@@ -4,7 +4,7 @@ import { CSS } from "@dnd-kit/utilities";
 import React from "react";
 
 const DndDemo = (props) => {
-  const {item,key,tableSize,id}=props;
+  const {item,tableSize,id}=props;
   const {attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition} = useSortable({
     id: id,
   });

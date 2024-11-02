@@ -397,3 +397,10 @@
     top: 0;
     z-index: 5;
 }
+
+// lớp định nghĩa căn giữa cho nội dung
+.contentCenterContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

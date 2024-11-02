@@ -96,3 +96,32 @@
         }
     }
 }
+
+// statusCell dropdown custom
+.ant-dropdown.statusCell__dropdown{
+    .ant-dropdown-arrow{
+        &::before{
+            z-index:100;
+            background-color: var(--color-background-dropdown);
+        }
+    }
+    .ant-dropdown-menu{
+        width:140%;
+        transform: translateX(-15%);
+        background-color: var(--color-background-dropdown);
+        box-shadow: 0px 0px 20px -3px rgba(0,0,0,.6);
+        .ant-dropdown-menu-item{
+            color:var(--header-text-color);
+            .statusCell__dropdown__choiceList{
+                padding: 10px;
+                .statusChoice{
+                    @extend .contentCenterContainer;
+                    margin:5px 0;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                }
+            }
+
+        }
+    }
+}

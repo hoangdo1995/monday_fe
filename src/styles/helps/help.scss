@@ -87,9 +87,18 @@ body{
     // ----------icon color ----------------------
     --color-icon-main-template-bg:#{$color-gray-violet};
     --color-icon-main-template-border:#{$color-dark-blue};
+    --color-icon-main-hover-bg:#{$color-blue-light};
     // table
     --color-table-bg-main:#{$color-gray-violet-1};
     --color-row-hover-bg:#{$color-gray-6};
+    --color-table-border:gray;
+    // row color
+    --color-table-row-border-color-main:#{$color-gray-3};
+    // row dragOverlay
+    --color-row-drag-bg:#{$color-white};
+    --color-text-drag:#{$color-gray-violet};
+    --color-row-border-drag:#{$color-gray-blue-1};
+    --color-bg-headerTitle-dragging:#{$color-gray-blue-light-1};
     }
 
 //font-weight
