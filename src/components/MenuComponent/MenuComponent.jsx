@@ -1,7 +1,8 @@
 import { Dropdown } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import RadioInput from "../RadioInput";
+import CookieService from "../../utils/cookieService";
+import { history } from "../..";
 
 const MenuComponent = () => {
     const [themeState,setThemeState] = useState('system');
@@ -56,7 +57,17 @@ const MenuComponent = () => {
                     <Link to={''}><i class="fa fa-file-archive"></i>Archive</Link>
                     <Link to={''}><i class="fa fa-cog"></i>Administration</Link>
                     <Link to={''}><i class="fa fa-users"></i>Teams</Link>
-                    <Link to={''}><i class="fa fa-sign-out-alt"></i>Log out</Link>
+                    <Link to={'/log-in'}
+                        onClick={()=>{
+                            // delete login info
+                            CookieService.deleteCookie('access_token')
+                            // redirect to login page
+                            history.push('/log-in')
+                        }}
+                    >
+                        <i class="fa fa-sign-out-alt"></i>
+                        Log out
+                    </Link>
                     <Link to={''}><i class="fa fa-exchange-alt"></i>Switch accounts</Link>
                 </div>
                 <div className="flex flex-col">

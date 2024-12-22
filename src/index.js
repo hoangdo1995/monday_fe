@@ -9,7 +9,6 @@ import { store } from './redux/configStore';
 //Router
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import { createBrowserHistory} from 'history';
-import { DndContext } from '@dnd-kit/core';
 
 export const history = createBrowserHistory();
 

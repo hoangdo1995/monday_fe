@@ -5,7 +5,6 @@ import SignUpPage1 from './pages/SignUpDetailPage/SignUpPage1';
 import SignUpPage2 from './pages/SignUpDetailPage/SignUpPage2';
 import SignUpPage3 from './pages/SignUpDetailPage/SignUpPage3';
 import SignUpPage4 from './pages/SignUpDetailPage/SignUpPage4';
-import CreateBoardPage1 from './pages/BoardCreatePage/CreateBoardPage1';
 import SelectColumnPage from './pages/BoardCreatePage/SelectColumnPage';
 import SelectViewLayoutPage from './pages/BoardCreatePage/SelectViewLayoutPage';
 import SelectObjectManagerPage from './pages/BoardCreatePage/SelectObjectManagerPage';
@@ -19,6 +18,7 @@ import MainTemplate from './templates/MainTemplate/MainTemplate';
 import DashboardHome from './pages/DashboardPage/DashboardHome';
 import DashboardManagementPage from './pages/DashboardPage/DashboardManagermentPage';
 import TableViewComponent from './pages/ProjectManagementComponents/Views/TableView/TableViewComponent';
+import NotFoundPageDefault from './pages/NotFoundPageDefault/NotFoundPageDefault';
 
 
 function App() {
@@ -118,6 +118,10 @@ function App() {
           ]
         }
       ]
+     },
+     {
+      path:"*",
+      element:<NotFoundPageDefault/>
      }
 ])
   return element;

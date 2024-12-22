@@ -1,0 +1,47 @@
+.radio-input-main span {
+  background-color: var(--color-radio-main-bg);
+  border: 2px solid var(--color-radio-main-border);
+  transition: all 0.3s;
+}
+.radio-input-main:hover span {
+  border: 2px solid var(--color-radio-main-border-hover);
+}
+.radio-input-main input:checked ~ span {
+  border: 3.5px solid var(--color-radio-main-border-checked);
+}
+
+.adaptiveInput input {
+  display: none;
+  background-color: transparent;
+  outline: none;
+}
+.adaptiveInput input::-moz-placeholder {
+  opacity: 0.5;
+  font-size: 14px;
+}
+.adaptiveInput input::placeholder {
+  opacity: 0.5;
+  font-size: 14px;
+}
+.adaptiveInput input:focus {
+  cursor: text;
+}
+.adaptiveInput .filter {
+  display: none;
+}
+
+.adaptiveInput.active {
+  border: 1px solid var(--color-border-input-hover);
+}
+.adaptiveInput.active .title {
+  display: none;
+}
+.adaptiveInput.active input {
+  display: block;
+}
+.adaptiveInput.active .filter {
+  display: block;
+}
+.adaptiveInput.active:hover {
+  background-color: transparent;
+}/*# sourceMappingURL=customInput.css.map */

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LogoComponent from "../../components/LogoComponent";
 import InputText from "../../components/InputText";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
@@ -6,9 +6,15 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 import LabelError from "../../components/LabelError";
+import ApiService from "../../utils/apiService";
+import CookieService from "../../utils/cookieService";
+import { history } from "../..";
+import { Alert } from "antd";
+import { useState } from "react";
 
 const LoginPage = () => {
-
+    const [messageLogin,setMessageLogin] = useState('');
+    const [loginStatus,setLoginStatus] = useState(null);
     const formik  = useFormik({
         initialValues:{
             email:'',
@@ -18,9 +24,44 @@ const LoginPage = () => {
             email:Yup.string().email().required(),
             password:Yup.string().required().min(8,'Least at 8 character')
         }),
-        onSubmit:(values)=>{
+        onSubmit:async(values)=>{
+            const response = await ApiService.post('/auth/login',{
+                email:values.email,
+                password: values.password
+            })
+            if(response.status === 201){
+                // set value for display 
+                setMessageLogin(response.data.message);
+            }
+            console.log(response.data)
+            switch(response.data.statusCode){
+                case 202:{
+                    CookieService.setCookie('access_token',response.data.data.access_token);
+                    // set value for display 
+                    setLoginStatus('success');
+                    setTimeout(()=>{
+                        history.push('/');
+                    },1000)
+                    break;
+                }
+                case 401:{
+                    // set value for display 
+                    setLoginStatus('error');
+                    break;
+                }
+                default: {
+                    setLoginStatus('warning');
+                    break;
+                }
+            }
         }
     })
+
+    useEffect(()=>{
+        if(CookieService.getCookie('access_token')){
+            history.push('/');
+        }
+    },[])
 
   return <div className="">
             <div className="bg-slate-100 py-3 ps-10">
@@ -31,6 +72,10 @@ const LoginPage = () => {
                     <div className="text-center">
                         <div className="text-4xl font-light mt-10"><span className="font-extrabold text-4xl">Log</span> In</div>
                         <div className="font-light text-lg mt-2">Dohoang1995 Team</div>
+                        {/* Display notification */}
+                        <div className="w-full flex justify-center">
+                            {loginStatus&&<Alert className="w-fit" message={messageLogin} type={loginStatus} showIcon={true} />}
+                        </div>
                     </div>
                     <div className="grid mt-10 gap-y-7 text-center me-16" style={{gridTemplateColumns:'1fr 4fr'}}>
                         <label className='me-3 text-slate-500 text-right flex items-center justify-end' forhtml='email' >Email</label>
@@ -66,10 +111,10 @@ const LoginPage = () => {
                         In order to sign up to <span className='font-bold'>hoangdo's team's</span> account, you have to be invited by it's admin.
                 </div>
                 <div className="mt-8 w-4/12 text-center">
-                    <Link className="text-sky-400 hover:text-sky-600" to={'login-another'}>Login with another account</Link>
+                    <Link className="text-sky-400 hover:text-sky-600" to={'/login-another'}>Login with another account</Link>
                     <div>
                         Can't log in?
-                        <Link className="text-sky-400 ms-2 hover:text-sky-600" to={'help-page'}>Visit out help center</Link>
+                        <Link className="text-sky-400 ms-2 hover:text-sky-600" to={'/help-page'}>Visit out help center</Link>
                     </div>
                 </div>
             </div>

@@ -71,6 +71,15 @@
     }
 }
 
+.button-none-bg.disabled{
+    opacity: 0.75;
+    cursor: default;
+    &:hover{
+        background-color: transparent;
+    }
+}
+
+
 .button-main{
     background-color: var(--color-btn-bg-light);
     padding: 5px 10px;

@@ -1,0 +1,103 @@
+body {
+  --color-button-blue:#3171e2;
+  --color-button-blue-hover:#0360b9;
+  --color-button-white-hover:#dcdfec;
+  --color-border-gray-1:#c3c6d4;
+  --color-border-gray-2:#878787;
+  --color-border-input-gray:#878787;
+  --color-border-input-hover:#0173ea;
+  --color-break-line:#57597d;
+  --color-input-text-hover:#dcdfec;
+  --color-text-light:#ffffff;
+  --color-text-primary:#323338;
+  --color-text-secondary:#878787;
+  --color-text-link:#1f76c2;
+  --color-text-dropdown-main:#d5d8df;
+  --color-text-main:#d5d8df;
+  --header-background:#292f4c;
+  --color-background-dropdown:#30324e;
+  --color-theme-active-background:#133774;
+  --color-menu-item-hover-background:#364a69;
+  --color-menu-item-hover-background-dark:#29364a;
+  --header-text-color:#ffffff;
+  --tooltip-bg-color:#ffffff;
+  --tooltip-text-color:#878787;
+  --color-body-bg:#1d1f3b;
+  --color-body-content-bg:#30324e;
+  --color-invite-team-content-bg:#33354b;
+  --color-btn-bg-light:#0173ea;
+  --color-btn-bg-light-hover:#0060b9;
+  --color-btn-none-bg-hover-color:#4b4e69;
+  --color-btn-filter-choice:#32354b;
+  --color-btn-filter-choice-hover:#41425b;
+  --color-radio-main-bg:#3c3d43;
+  --color-radio-main-border:#57597d;
+  --color-radio-main-border-hover:#ffffff;
+  --color-radio-main-border-checked:#0173ea;
+  --color-box-shadow-main:#1d1f3b;
+  --color-box-shadow-circle:#878787;
+  --color-table-shadow:#c3c6d4;
+  --color-modal-profile-step-bg:#191b34;
+  --color-modal-profile-step-shadow:rgba(10, 13, 32, 0.5);
+  --color-modal-button-ok-bg:#0173ea;
+  --color-input-border-hover:#d5d8df;
+  --color-icon-main-template-bg:#292f4c;
+  --color-icon-main-template-border:#191b34;
+  --color-icon-main-hover-bg:#0173ea;
+  --color-table-bg-main:#30324e;
+  --color-row-hover-bg:#33354b;
+  --color-table-border:gray;
+  --color-table-row-border-color-main:#878787;
+  --color-row-drag-bg:#ffffff;
+  --color-text-drag:#292f4c;
+  --color-row-border-drag:#133774;
+  --color-bg-headerTitle-dragging:#364a69;
+}
+
+.fw-lighter {
+  font-weight: 100;
+}
+
+.fw-light {
+  font-weight: 300;
+}
+
+.fw-normal {
+  font-weight: 400;
+}
+
+.fw-semibold {
+  font-weight: 500;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fw-bolder {
+  font-weight: 800;
+}
+
+.fs-1 {
+  font-size: 14px;
+}
+
+.fs-2 {
+  font-size: 16px;
+}
+
+.fs-3 {
+  font-size: 18px;
+}
+
+.fs-4 {
+  font-size: 20px;
+}
+
+.fs-5 {
+  font-size: 24px;
+}
+
+.fs-6 {
+  font-size: 30px;
+}/*# sourceMappingURL=help.css.map */

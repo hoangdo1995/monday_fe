@@ -1,0 +1,13 @@
+.calender-cell-day .task-title {
+  background-color: #fdab3e;
+  display: block;
+  position: absolute;
+  color: white;
+  padding: 2px 5px;
+  font-size: 13px;
+  border-radius: 3px;
+  text-transform: capitalize;
+  width: 80%;
+  height: 22px;
+  text-align: center;
+}/*# sourceMappingURL=createBoardPage.css.map */
