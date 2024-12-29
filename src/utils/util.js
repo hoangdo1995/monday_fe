@@ -46,3 +46,12 @@ export function roundToDecimalPlace(number, decimalPlaces) {
     let factor = Math.pow(10, decimalPlaces);
     return Math.round(number * factor) / factor;
   }
+
+//   tự đông capitalize input
+ export const capitalizeInput = (inputText) => {
+    return inputText
+      .trim() // Loại bỏ khoảng trắng ở đầu và cuối
+      .split(' ') // Tách chuỗi thành mảng các từ
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize mỗi từ
+      .join(' '); // Ghép lại thành chuỗi
+  };

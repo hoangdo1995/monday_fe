@@ -1,14 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RadioInput from "../../components/RadioInput";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
 import DirectionButtonGray from "../../components/DirectionButtonGray";
+import { useDispatch, useSelector } from "react-redux";
+import { setActivePageSignUp, setPersonalizationDataCreate } from "../../redux/reducer/userReducers/createUserReducer";
 
 const SignUpPage3 = (props) => {
     const {nextLink,prevLink} =props;
-    const [focusValue,setFocusValue] = useState(null);
+    // redux
+    const {personalizationData, activePageSignUp} = useSelector((state)=>state.createUserReducer);
+    const dispatch = useDispatch();
+
+    const [focusValue,setFocusValue] = useState(personalizationData?.like_focus || null);
+    const [isNextPageAccept, setIsNextPageAccept] = useState(activePageSignUp.includes('page3')?true:false);
+
+    const setPersonalizationData = async()=>{
+        const action = setPersonalizationDataCreate({like_focus:focusValue});
+        await dispatch(action);
+        const action2 = setActivePageSignUp('page3');
+        await dispatch(action2);
+    }
+
     const setValueHandle = (value)=>{
         setFocusValue(value);
     }
+    useEffect(()=>{
+        const focusRadio = document.querySelector(`input[value="${focusValue}"]`);
+        if(focusRadio) focusRadio.defaultChecked = true;
+
+        if(focusValue) setIsNextPageAccept(true)
+
+    },[focusValue])
   return <>
     <div className="sign-in-body">
             <div className="form-content max-w-full">
@@ -34,7 +56,7 @@ const SignUpPage3 = (props) => {
         </div>
         <div className="sign-in-footer flex justify-between w-full">
             <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={prevLink}/>
-            <DirectionButtonDefault title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" ></i></span>} linkRouter={nextLink}active={true}/>
+            <DirectionButtonDefault onClickHandler= {setPersonalizationData}  title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" ></i></span>} linkRouter={nextLink} disable={!isNextPageAccept}/>
     </div>
   </>;
 };

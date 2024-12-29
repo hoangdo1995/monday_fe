@@ -1,18 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DirectionButtonDefault from "../../components/DirectionButtonDefault";
 import RadioInput from "../../components/RadioInput";
 import DirectionButtonGray from "../../components/DirectionButtonGray";
+import { useDispatch, useSelector } from "react-redux";
+import { setActivePageSignUp, setPersonalizationDataCreate } from "../../redux/reducer/userReducers/createUserReducer";
 
 const SignUpPage2 = (props) => {
     const {nextLink, prevLink} = props;
-    const [bringValue,setBringValue] = useState(null);
-    const [yourRoleValue,setYourRoleValue] = useState(null);
+
+    // redux
+    const {newUser,activePageSignUp} = useSelector((state)=>state.createUserReducer);
+    const {personalizationData,} = useSelector((state)=>state.createUserReducer);
+    const dispatch = useDispatch()
+
+    const [bringValue,setBringValue] = useState(personalizationData?.bring_here || null);
+    const [yourRoleValue,setYourRoleValue] = useState(personalizationData.current_role || null);
+    const [isNextPageAccept, setIsNextPageAccept] = useState(activePageSignUp.includes('page2')?true:false);
+
     const bringValueHandle = (value)=>{
         setBringValue(value);
     }
     const yourRoleValueHandle = (value)=>{
         setYourRoleValue(value);
     }
+
+    const setPersonalizationData = async()=>{
+        const action = setPersonalizationDataCreate({bring_here:bringValue,
+            current_role:yourRoleValue,});
+        await dispatch(action);
+        const action2 = setActivePageSignUp('page2');
+        await dispatch(action2);
+    }
+    
+
+    useEffect(()=>{
+        if(bringValue && yourRoleValue) setIsNextPageAccept(true);
+        // checked radio with redux data
+        const bringRadio = document.querySelector(`input[value="${bringValue}"]`);
+        const yourRoleRadio = document.querySelector(`input[value="${yourRoleValue}"]`);
+        if(bringRadio) bringRadio.defaultChecked = true;
+        if(yourRoleRadio) yourRoleRadio.defaultChecked = true;
+
+    },[bringValue, yourRoleValue])
   return <>
     <div className="sign-in-body">
             <div className="form-content max-w-full">
@@ -39,7 +68,7 @@ const SignUpPage2 = (props) => {
         </div>
         <div className="sign-in-footer flex justify-between w-full">
             <DirectionButtonGray  title={<span><i className="fa fa-chevron-left me-2"></i> Back</span>} linkRouter={prevLink}/>
-            <DirectionButtonDefault title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" ></i></span>} linkRouter={nextLink} active={true}/>
+            <DirectionButtonDefault onClickHandler={setPersonalizationData} linkRouter={nextLink} disable={!isNextPageAccept} title={<span>Continue <i className="fa fa-chevron-right ms-2 text-sm" ></i></span>} />
     </div>
   </>;
 };

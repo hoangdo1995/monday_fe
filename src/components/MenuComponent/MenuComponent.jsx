@@ -3,8 +3,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CookieService from "../../utils/cookieService";
 import { history } from "../..";
+import { resetLoginInfo } from "../../redux/reducer/userReducers/UserReducer";
+import { useDispatch } from "react-redux";
 
 const MenuComponent = () => {
+    // redux
+    const dispatch = useDispatch();
+
     const [themeState,setThemeState] = useState('system');
     const themeValueIconList = {
         'light':'sun',
@@ -24,19 +29,19 @@ const MenuComponent = () => {
         // thêm class cho thẻ body để thay đổi giao diện web qua scss variable
     }
     const items = [{
-        label:<span  className="theme-item" onClick={(event)=>changeThemeState(event,'light')}><i class="fa fa-sun"></i>Light</span>,
+        label:<span  className="theme-item" onClick={(event)=>changeThemeState(event,'light')}><i className="fa fa-sun"></i>Light</span>,
         key:'light'
     },
     {
-        label:<span className="theme-item" onClick={(event)=>changeThemeState(event,'dark')}><i class="fa fa-moon"></i>Dark</span>,
+        label:<span className="theme-item" onClick={(event)=>changeThemeState(event,'dark')}><i className="fa fa-moon"></i>Dark</span>,
         key:'dark'
     },
     {
-        label:<span className="theme-item" onClick={(event)=>changeThemeState(event,'night')}><i class="fa fa-star"></i>Night</span>,
+        label:<span className="theme-item" onClick={(event)=>changeThemeState(event,'night')}><i className="fa fa-star"></i>Night</span>,
         key:'night'
     },
     {
-        label:<span className="theme-item active" onClick={(event)=>changeThemeState(event,'system')}><i class="fa fa-cogs"></i>System default</span>,
+        label:<span className="theme-item active" onClick={(event)=>changeThemeState(event,'system')}><i className="fa fa-cogs"></i>System default</span>,
         key:'system'
     }
 ]
@@ -48,38 +53,41 @@ const MenuComponent = () => {
             <div className="popup-body flex">
                 <div className="flex flex-col">
                     <span>Account</span>
-                    <Link to={''}><i class="fa fa-user"></i>My profile</Link>
-                    <Link to={''}><i class="fa fa-file-import"></i>Import data</Link>
-                    <Link to={''}><i class="fa fa-robot"></i>Automations</Link>
-                    <Link to={''}><i class="fa fa-code"></i>Developers</Link>
-                    <Link to={''}><i class="fab fa-grav"></i>Spaces</Link>
-                    <Link to={''}><i class="fa fa-trash-alt"></i>Trash</Link>
-                    <Link to={''}><i class="fa fa-file-archive"></i>Archive</Link>
-                    <Link to={''}><i class="fa fa-cog"></i>Administration</Link>
-                    <Link to={''}><i class="fa fa-users"></i>Teams</Link>
+                    <Link to={''}><i className="fa fa-user"></i>My profile</Link>
+                    <Link to={''}><i className="fa fa-file-import"></i>Import data</Link>
+                    <Link to={''}><i className="fa fa-robot"></i>Automations</Link>
+                    <Link to={''}><i className="fa fa-code"></i>Developers</Link>
+                    <Link to={''}><i className="fab fa-grav"></i>Spaces</Link>
+                    <Link to={''}><i className="fa fa-trash-alt"></i>Trash</Link>
+                    <Link to={''}><i className="fa fa-file-archive"></i>Archive</Link>
+                    <Link to={''}><i className="fa fa-cog"></i>Administration</Link>
+                    <Link to={''}><i className="fa fa-users"></i>Teams</Link>
                     <Link to={'/log-in'}
-                        onClick={()=>{
+                        onClick={async()=>{
                             // delete login info
-                            CookieService.deleteCookie('access_token')
+                            CookieService.deleteCookie('access_token');
+                            // reset redux
+                            const action = resetLoginInfo();
+                            dispatch(action)
                             // redirect to login page
                             history.push('/log-in')
                         }}
                     >
-                        <i class="fa fa-sign-out-alt"></i>
+                        <i className="fa fa-sign-out-alt"></i>
                         Log out
                     </Link>
-                    <Link to={''}><i class="fa fa-exchange-alt"></i>Switch accounts</Link>
+                    <Link to={''}><i className="fa fa-exchange-alt"></i>Switch accounts</Link>
                 </div>
                 <div className="flex flex-col">
                     <span>Explore</span>
-                    <Link to={''}><i class="fa fa-store"></i>App marketplace</Link>
-                    <Link to={''}><i class="fa fa-mobile-alt"></i>Mobile app</Link>
-                    <Link to={''}><i class="fa fa-vial"></i>monday.labs</Link>
-                    <Link to={''} className="shortcut"><i class="fa fa-gift"></i>Shortcuts</Link>
-                    <Link to={''}><i class="fa fa-plus"></i>Invite members</Link>
-                    <Link to={''}><i class="fa fa-question"></i>Get help</Link>
+                    <Link to={''}><i className="fa fa-store"></i>App marketplace</Link>
+                    <Link to={''}><i className="fa fa-mobile-alt"></i>Mobile app</Link>
+                    <Link to={''}><i className="fa fa-vial"></i>monday.labs</Link>
+                    <Link to={''} className="shortcut"><i className="fa fa-gift"></i>Shortcuts</Link>
+                    <Link to={''}><i className="fa fa-plus"></i>Invite members</Link>
+                    <Link to={''}><i className="fa fa-question"></i>Get help</Link>
                     <Dropdown overlayClassName="theme-dropdown" className="text-left ps-3" menu={{ items }} placement="bottomRight" trigger={['hover']}>
-                        <button><i class={`fa fa-${themeValueIconList[themeState]} text-center`} style={{minWidth:20,marginRight:4}}></i>Change theme</button>
+                        <button><i className={`fa fa-${themeValueIconList[themeState]} text-center`} style={{minWidth:20,marginRight:4}}></i>Change theme</button>
                     </Dropdown>
                 </div>
             </div>

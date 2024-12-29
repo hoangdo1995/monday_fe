@@ -1,7 +1,29 @@
+import { useFormik } from "formik";
 import React from "react";
+import * as Yup from 'yup';
+import { history } from "../..";
+import { useDispatch, useSelector } from "react-redux";
+import { setNewUserCreate } from "../../redux/reducer/userReducers/createUserReducer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const SignUpPage = () => {
+    // redux
+    const newUser = useSelector((state)=>state.createUserReducer.newUser);
+    const dispatch = useDispatch();
+
+    const formik = useFormik({
+        initialValues:{
+            email: newUser?.email||''
+        },
+        validationSchema:Yup.object().shape({
+            email:Yup.string().email().required(),
+        }),
+        onSubmit:async(values)=>{
+            await dispatch(setNewUserCreate(formik.values))
+            history.push('sign-up-form/page-1');
+        }
+    })
     return <div className="singin-page">
         <div className="content h-screen flex  w-full">
             <div className="login-form w-full flex items-center justify-center px-4">
@@ -19,8 +41,8 @@ const SignUpPage = () => {
                         <div className="line"></div>
                     </div>
                     <div className="email-sign-in">
-                        <form>
-                            <input className="w-full mb-4" type="email" placeholder="name@company.com"/>
+                        <form onSubmit={formik.handleSubmit}>
+                            <input id={'email'} className="w-full mb-4" type="email" placeholder="name@company.com" onChange={formik.handleChange}/>
                             <button type="submit">Continue</button>
                         </form>
                     </div>

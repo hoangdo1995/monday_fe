@@ -14,7 +14,7 @@ const items  = [
                     {
                     key: '1',
                     label: 'My private tasks',
-                    children: <div>
+                    children: <div className="">
                                 <div className="dashboard-content-item ">
                                     <div className="flex justify-center">
                                         <div className="text-center py-7">
@@ -113,8 +113,9 @@ const items  = [
         const onChange = (key) => {
             console.log(key);
           }; 
-  return <div className="dashboard-home overflow-y-scroll min-h-fit h-screen">
-            <div className="dashboard-home-header break-line-bottom px-10 py-3 flex justify-between">
+  return <>
+        <div className="dashboard-home flex flex-col h-full">
+            <div className="dashboard-home-header break-line-bottom px-10 py-3 h-fit flex justify-between">
                 <div>
                     <div style={{fontSize:15}}>Good afternoon, Đỗ</div>
                     <div>Quick access your recent boards, Inbox and workspaces</div>
@@ -126,32 +127,31 @@ const items  = [
                     </div>
                 </div>
             </div>
-            <div className="dashboard-home-body">
-                <div className="dashboard-home-body-container flex px-10 py-5">
-                    <div className="dashboard-home-content w-full h-fit min-h-screen flex-grow py-5 px-6 rounded-lg">
-                        <Collapse  items={items} defaultActiveKey={['1']} bordered={false} ghost onChange={onChange} />
+            <div className="dashboard-home-body flex-grow h-full">
+                <div className="dashboard-home-body-container h-full max-h-full flex px-10 py-5">
+                    <div className="dashboard-home-content w-full  py-5 px-6 rounded-lg ">
+                        <Collapse className="" items={items} defaultActiveKey={['1']} bordered={false} ghost onChange={onChange} />
                     </div>
-                    <div className="dashboard-home-info ms-6">
+                    <div className="dashboard-home-info ms-6 w-fit">
                         <div className="dashboard-home-info-item">
                             <CompleteProfileStep/>
                         </div>
-                        <div className="dashboard-home-info-item"></div>
-                        <div className="dashboard-home-info-item"></div>
                     </div>
                 </div>
             </div>
-            <Modal  wrapClassName="template_center_modal"
-                    footer={null}
-                    centered
-                    open={templateCenterModalOpen}
-                    onOk={() => setTemplateCenterModalOpen(false)}
-                    onCancel={() => {setTemplateCenterModalOpen(false);history.push('/')}}
-                    confirmLoading={true}>
-                        <TemplateCenterModal handleOkChange={setTemplateCenterModalOpen}/>
-
-            </Modal>
         </div>
-        // Modal
+        {/* // Modal */}
+        <Modal  wrapClassName="template_center_modal"
+                footer={null}
+                centered
+                open={templateCenterModalOpen}
+                onOk={() => setTemplateCenterModalOpen(false)}
+                onCancel={() => {setTemplateCenterModalOpen(false);history.push('/')}}
+                confirmLoading={true}>
+                    <TemplateCenterModal handleOkChange={setTemplateCenterModalOpen}/>
+
+        </Modal>
+    </>
         ;
 };
 

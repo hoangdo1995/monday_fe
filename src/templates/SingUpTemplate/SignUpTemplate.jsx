@@ -1,7 +1,6 @@
 import React from "react";
-import DirectionButtonDefault from "../../components/DirectionButtonDefault";
 import LogoComponent from "../../components/LogoComponent";
-import { Outlet, useLocation, useOutlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const SignUpTemplate = (props) => {
     const listPanelImage = {
@@ -26,7 +25,7 @@ const SignUpTemplate = (props) => {
                     <Outlet/>
                 </div>
             </div>
-            <div className="login-panel max-w-screen-sm hidden sm:block h-screen" style={{maxWidth:'40%'}}>
+            <div className="login-panel max-w-screen-sm hidden md:block h-screen" style={{maxWidth:'40%'}}>
                 <div className="content h-full items-center" style={{overflow:'hidden'}}>
                     <img className="w-screen-sm min-h-screen" style={{objectFit:'cover'}} src={listPanelImage[endPoint]} alt="" />
                 </div>
