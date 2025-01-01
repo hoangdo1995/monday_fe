@@ -35,14 +35,13 @@ const SignUpPage4 = (props) => {
       const action = setPersonalizationDataCreate({team_emails:listTeamEmail})
       await dispatch(action);
 
-      // chuyển đổi dử liệu
+      // exchange data
       const {newUser,personalizationData} = newUserInfo;
       const data = {
         ...newUser,
-        personal_info:{...personalizationData}
+        personal_info:{...personalizationData,team_emails:listTeamEmail}
       }
       const fetchSignUp = fetchSingUpNewUser(data);
-      console.log(newUserInfo)
       await dispatch(fetchSignUp)
   }
   
